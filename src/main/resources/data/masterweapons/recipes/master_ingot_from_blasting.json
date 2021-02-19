@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "masterweapons:master_ore"
+  },
+  "result": "masterweapons:master_ingot",
+  "experience": 1.0,
+  "cookingtime": 100
+}

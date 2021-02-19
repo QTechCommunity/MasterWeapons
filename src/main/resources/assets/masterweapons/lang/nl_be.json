@@ -1,0 +1,16 @@
+{
+  "itemGroup.master_weapons": "Meester Wapens",
+  "item.masterweapons.master_sword": "Meester zwaard",
+  "item.masterweapons.master_axe": "Meester bijl",
+  "item.masterweapons.master_pickaxe": "Meester houweel",
+  "item.masterweapons.master_shovel": "Meester Shovel",
+  "item.masterweapons.master_hoe": "Meester schoffel",
+  "item.masterweapons.master_helmet": "Meester helm",
+  "item.masterweapons.master_chestplate": "Meester kuras",
+  "item.masterweapons.master_leggings": "Meester beenstukken",
+  "item.masterweapons.master_boots": "Meester laarzen",
+  "item.masterweapons.master_ingot": "Meester metalen staaf",
+  "item.masterweapons.master_nugget": "Meester klompje",
+  "block.masterweapons.master_block": "Meester blok",
+  "block.masterweapons.master_ore": "Meester erts"
+}

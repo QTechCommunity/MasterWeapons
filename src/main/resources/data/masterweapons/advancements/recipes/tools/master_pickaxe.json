@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "masterweapons:master_pickaxe"
+    ]
+  },
+  "criteria": {
+    "has_master_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "masterweapons:master_ingot"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "masterweapons:master_pickaxe"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_master_ingot",
+      "has_the_recipe"
+    ]
+  ]
+}

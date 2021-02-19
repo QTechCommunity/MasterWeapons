@@ -1,2 +1,2 @@
-# master-weapons
+# Master Weapons
 The revival of the Master Weapons mod.

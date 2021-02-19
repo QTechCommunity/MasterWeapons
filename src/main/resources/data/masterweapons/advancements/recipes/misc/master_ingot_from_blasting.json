@@ -1,0 +1,32 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "masterweapons:master_ingot_from_blasting"
+    ]
+  },
+  "criteria": {
+    "has_master_ore": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "masterweapons:master_ore"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "masterweapons:master_ingot_from_blasting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_master_ore",
+      "has_the_recipe"
+    ]
+  ]
+}

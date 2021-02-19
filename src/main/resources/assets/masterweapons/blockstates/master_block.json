@@ -1,0 +1,7 @@
+{
+  "variants": {
+    "": {
+      "model": "masterweapons:block/master_block"
+    }
+  }
+}

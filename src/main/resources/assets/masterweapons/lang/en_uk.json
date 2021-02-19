@@ -1,0 +1,16 @@
+{
+  "itemGroup.master_weapons": "Master Weapons",
+  "item.masterweapons.master_sword": "Master Sword",
+  "item.masterweapons.master_axe": "Master Axe",
+  "item.masterweapons.master_pickaxe": "Master Pickaxe",
+  "item.masterweapons.master_shovel": "Master Shovel",
+  "item.masterweapons.master_hoe": "Master Hoe",
+  "item.masterweapons.master_helmet": "Master Helmet",
+  "item.masterweapons.master_chestplate": "Master Chestplate",
+  "item.masterweapons.master_leggings": "Master Leggings",
+  "item.masterweapons.master_boots": "Master Boots",
+  "item.masterweapons.master_ingot": "Master Ingot",
+  "item.masterweapons.master_nugget": "Master Nugget",
+  "block.masterweapons.master_block": "Master Block",
+  "block.masterweapons.master_ore": "Master Ore"
+}

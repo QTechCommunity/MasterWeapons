@@ -1,0 +1,6 @@
+@ParametersAreNonnullByDefault @MethodsReturnNonnullByDefault
+package com.qtech.masterweapons.items;
+
+import mcp.MethodsReturnNonnullByDefault;
+
+import javax.annotation.ParametersAreNonnullByDefault;

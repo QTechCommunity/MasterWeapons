@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "master_ingot",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "masterweapons:master_nugget"
+    }
+  },
+  "result": {
+    "item": "masterweapons:master_ingot"
+  }
+}

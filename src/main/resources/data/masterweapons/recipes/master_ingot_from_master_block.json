@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "master_ingot",
+  "ingredients": [
+    {
+      "item": "masterweapons:master_block"
+    }
+  ],
+  "result": {
+    "item": "masterweapons:master_ingot",
+    "count": 9
+  }
+}
