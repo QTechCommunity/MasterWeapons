@@ -112,25 +112,25 @@ public class MasterWeapons {
             return new ItemStack(ModItems.MASTER_SWORD.get());
         }
 
-        /**
-         * This method fills in the item stacks for the item group.
-         *
-         * @param items an list to fill in the item stacks.
-         */
-        @Override
-        public void fill(NonNullList<ItemStack> items) {
-            items.add(new ItemStack(ModItems.MASTER_SWORD.get()));
-            items.add(new ItemStack(ModItems.MASTER_AXE.get()));
-            items.add(new ItemStack(ModItems.MASTER_PICKAXE.get()));
-            items.add(new ItemStack(ModItems.MASTER_SHOVEL.get()));
-            items.add(new ItemStack(ModItems.MASTER_HOE.get()));
-            items.add(new ItemStack(ModItems.MASTER_HELMET.get()));
-            items.add(new ItemStack(ModItems.MASTER_CHESTPLATE.get()));
-            items.add(new ItemStack(ModItems.MASTER_LEGGINGS.get()));
-            items.add(new ItemStack(ModItems.MASTER_INGOT.get()));
-            items.add(new ItemStack(ModItems.MASTER_NUGGET.get()));
-            items.add(new ItemStack(ModBlocks.MASTER_BLOCK.get().asItem()));
-            items.add(new ItemStack(ModBlocks.MASTER_ORE.get().asItem()));
-        }
+//        /**
+//         * This method fills in the item stacks for the item group.
+//         *
+//         * @param items an list to fill in the item stacks.
+//         */
+//        @Override
+//        public void fill(NonNullList<ItemStack> items) {
+//            items.add(new ItemStack(ModItems.MASTER_SWORD.get()));
+//            items.add(new ItemStack(ModItems.MASTER_AXE.get()));
+//            items.add(new ItemStack(ModItems.MASTER_PICKAXE.get()));
+//            items.add(new ItemStack(ModItems.MASTER_SHOVEL.get()));
+//            items.add(new ItemStack(ModItems.MASTER_HOE.get()));
+//            items.add(new ItemStack(ModItems.MASTER_HELMET.get()));
+//            items.add(new ItemStack(ModItems.MASTER_CHESTPLATE.get()));
+//            items.add(new ItemStack(ModItems.MASTER_LEGGINGS.get()));
+//            items.add(new ItemStack(ModItems.MASTER_INGOT.get()));
+//            items.add(new ItemStack(ModItems.MASTER_NUGGET.get()));
+//            items.add(new ItemStack(ModBlocks.MASTER_BLOCK.get().asItem()));
+//            items.add(new ItemStack(ModBlocks.MASTER_ORE.get().asItem()));
+//        }
     }
 }
