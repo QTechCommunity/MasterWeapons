@@ -2,6 +2,7 @@ package com.qtech.masterweapons;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.BlockItem;
 import net.minecraft.item.Item;
 import net.minecraftforge.fml.RegistryObject;
 import net.minecraftforge.registries.DeferredRegister;
@@ -17,7 +18,7 @@ public class ModBlocks {
 
     private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> supplier) {
         RegistryObject<T> registryObject = REGISTER.register(name, supplier);
-        ModItems.register(name, () -> new BlockItem(registryObject, new Item.Properties().group(MasterWeapons.ITEM_GROUP)));
+        ModItems.register(name, () -> new BlockItem(registryObject.get(), new Item.Properties().group(MasterWeapons.ITEM_GROUP)));
         return registryObject;
     }
 }
