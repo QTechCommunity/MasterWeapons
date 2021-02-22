@@ -13,5 +13,5 @@
   "item.masterweapons.master_nugget": "Master Nugget",
   "block.masterweapons.master_block": "Master Block",
   "block.masterweapons.master_ore": "Master Ore",
-  "attribute.name.generic.attackDamage": "Attack Knockback"
+  "attribute.name.generic.attackKnockback": "Attack Knockback"
 }

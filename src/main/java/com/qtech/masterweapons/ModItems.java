@@ -1,4 +1,4 @@
-
+package com.qtech.masterweapons;
 
 import com.qtech.masterweapons.items.*;
 import net.minecraft.inventory.EquipmentSlotType;

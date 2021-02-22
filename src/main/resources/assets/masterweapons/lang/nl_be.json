@@ -12,5 +12,6 @@
   "item.masterweapons.master_ingot": "Meester metalen staaf",
   "item.masterweapons.master_nugget": "Meester klompje",
   "block.masterweapons.master_block": "Meester blok",
-  "block.masterweapons.master_ore": "Meester erts"
+  "block.masterweapons.master_ore": "Meester erts",
+  "attribute.name.generic.attackKnockback": "Aanval terugstoot"
 }
