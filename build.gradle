@@ -1,11 +1,20 @@
+//file:noinspection GroovyUnusedAssignment
+//file:noinspection GroovyAssignabilityCheck
+//file:noinspection JCenterRepository
+
+
+import java.nio.file.*
+
 buildscript {
     repositories {
         maven { url = 'https://files.minecraftforge.net/maven' }
+        maven { url = 'https://maven.minecraftforge.net' }
         jcenter()
         mavenCentral()
+        gradlePluginPortal()
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '3.+', changing: true
+        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '4.1.+', changing: true
     }
 }
 
@@ -13,15 +22,56 @@ apply plugin: 'net.minecraftforge.gradle'
 
 // Only edit below this line, the above code adds and enables the necessary things for Forge to be setup.
 apply plugin: 'eclipse'
+apply plugin: 'java'
 apply plugin: 'maven-publish'
 
-version = '2.0.1'
-group = 'com.qtech.masterweapons' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
+println('Java: ' + System.getProperty('java.version') + '\n JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ')\n Arch: ' + System.getProperty('os.arch'))
+println("OS: " + System.getProperty("os.name") + "\n OS Version: " + System.getProperty("os.version"))
+
+def incrementBuildNumber() {
+    String content = ""
+    String filePath = "buildnumber.txt"
+
+    println("Current Path: " + new File('.').getAbsolutePath())
+
+    try {
+        content = new String(Files.readAllBytes(FileSystems.getDefault().getPath(project.getRootDir().getAbsolutePath(), filePath)))
+    } catch (FileNotFoundException | NoSuchFileException ignored) {
+        content = "-1"
+    } catch (IOException e) {
+        throw new RuntimeException(e)
+    }
+
+    String buildNrString = content
+    Integer buildNumber = Integer.valueOf(buildNrString)
+
+    // Advance build number.
+    buildNumber++
+    println("Executing Build " + buildNumber)
+    String newBuild = buildNumber.toString()
+
+    // Write new build number.
+    Files.write(Paths.get("${projectDir}/buildnumber.txt"), newBuild.getBytes(), StandardOpenOption.CREATE, StandardOpenOption.WRITE)
+
+    return buildNumber
+}
+
+int buildNumber = incrementBuildNumber()
+
+// Read build number file.
+int version1 = Integer.parseInt(project.property("version").toString())
+int release = Integer.parseInt(project.property("versionRelease").toString())
+
+version version1 + "." + release + '.' + buildNumber
+group 'com.qtech.masterweapons' // http://maven.apache.org/guides/mini/guide-naming-conventions.html
 archivesBaseName = 'masterweapons'
 
-sourceCompatibility = targetCompatibility = compileJava.sourceCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+sourceCompatibility = compileJava.sourceCompatibility = '1.8' // Need this here so eclipse task generates correctly.
+targetCompatibility = compileJava.targetCompatibility = '1.8' // Need this here so eclipse task generates correctly.
 
 println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+
+
 
 minecraft {
     // The mappings can be changed at any time, and must be in the following format.
@@ -29,7 +79,7 @@ minecraft {
     // stable_#            Stables are built at the discretion of the MCP team.
     // Use non-default mappings at your own risk. they may not always work.
     // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: 'snapshot', version: '20200514-1.15.1'
+    mappings channel: 'snapshot', version: '20210309-1.16.5'
     // makeObfSourceJar = false // an Srg named sources jar is made by default. uncomment this to disable.
     
     // accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
@@ -99,7 +149,7 @@ dependencies {
     // Specify the version of Minecraft to use, If this is any group other then 'net.minecraft' it is assumed
     // that the dep is a ForgeGradle 'patcher' dependency. And it's patches will be applied.
     // The userdev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft 'net.minecraftforge:forge:1.15.2-31.2.49'
+    minecraft 'net.minecraftforge:forge:1.16.5-36.1.0'
 
     // You may put jars on which you depend on in ./libs or you may define them like so..
     // compile "some.group:artifact:version:classifier"
@@ -119,6 +169,11 @@ dependencies {
     // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
     // http://www.gradle.org/docs/current/userguide/dependency_management.html
 
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
 }
 
 // Example for how to get properties into the manifest for reading by the runtime..

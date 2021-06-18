@@ -6,7 +6,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "master_weapons:master_ore"
+          "name": "masterweapons:master_ore"
         }
       ],
       "conditions": [

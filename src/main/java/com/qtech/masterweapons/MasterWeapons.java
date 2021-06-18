@@ -1,10 +1,9 @@
 package com.qtech.masterweapons;
 
-import com.qtech.masterweapons.worldgen.WorldGeneration;
+import jdk.nashorn.internal.lookup.MethodHandleFactory;
 import mcp.MethodsReturnNonnullByDefault;
 import net.minecraft.item.ItemGroup;
 import net.minecraft.item.ItemStack;
-import net.minecraft.util.NonNullList;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -29,8 +28,11 @@ public class MasterWeapons {
     public static final String MOD_ID = "masterweapons";
     public static final String MOD_NAME = "Master Weapons";
     public static final ItemGroup ITEM_GROUP = new MWItemGroup();
-    private static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
+    public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 
+    /**
+     * DO NOT INVOKE
+     */
     public MasterWeapons() {
         LOGGER.info("Just loaded Master Weapons Mod initializer.");
 
@@ -67,7 +69,6 @@ public class MasterWeapons {
      */
     private void commonSetup(final FMLCommonSetupEvent event) {
         LOGGER.info("Master Weapons mod on generic setup.");
-        WorldGeneration.generate();
     }
 
     /**
@@ -111,26 +112,5 @@ public class MasterWeapons {
         public ItemStack createIcon() {
             return new ItemStack(ModItems.MASTER_SWORD.get());
         }
-
-//        /**
-//         * This method fills in the item stacks for the item group.
-//         *
-//         * @param items an list to fill in the item stacks.
-//         */
-//        @Override
-//        public void fill(NonNullList<ItemStack> items) {
-//            items.add(new ItemStack(ModItems.MASTER_SWORD.get()));
-//            items.add(new ItemStack(ModItems.MASTER_AXE.get()));
-//            items.add(new ItemStack(ModItems.MASTER_PICKAXE.get()));
-//            items.add(new ItemStack(ModItems.MASTER_SHOVEL.get()));
-//            items.add(new ItemStack(ModItems.MASTER_HOE.get()));
-//            items.add(new ItemStack(ModItems.MASTER_HELMET.get()));
-//            items.add(new ItemStack(ModItems.MASTER_CHESTPLATE.get()));
-//            items.add(new ItemStack(ModItems.MASTER_LEGGINGS.get()));
-//            items.add(new ItemStack(ModItems.MASTER_INGOT.get()));
-//            items.add(new ItemStack(ModItems.MASTER_NUGGET.get()));
-//            items.add(new ItemStack(ModBlocks.MASTER_BLOCK.get().asItem()));
-//            items.add(new ItemStack(ModBlocks.MASTER_ORE.get().asItem()));
-//        }
     }
 }
