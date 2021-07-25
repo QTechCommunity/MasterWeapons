@@ -2,7 +2,7 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "masterweapons:master_ingot_from_blasting"
+      "masterweapons:master_ingot_from_smelting_master_ore"
     ]
   },
   "criteria": {
@@ -12,6 +12,9 @@
         "items": [
           {
             "item": "masterweapons:master_ore"
+          },
+          {
+            "item": "masterweapons:raw_master_core"
           }
         ]
       }
@@ -19,7 +22,7 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "masterweapons:master_ingot_from_blasting"
+        "recipe": "masterweapons:master_ingot"
       }
     }
   },

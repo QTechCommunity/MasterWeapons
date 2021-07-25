@@ -1,9 +1,8 @@
 package com.qtech.masterweapons;
 
-import jdk.nashorn.internal.lookup.MethodHandleFactory;
-import mcp.MethodsReturnNonnullByDefault;
-import net.minecraft.item.ItemGroup;
-import net.minecraft.item.ItemStack;
+import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.world.item.CreativeModeTab;
+import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
@@ -11,8 +10,8 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLDedicatedServerSetupEvent;
-import net.minecraftforge.fml.event.server.FMLServerStartingEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.fmlserverevents.FMLServerStartingEvent;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -27,7 +26,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 public class MasterWeapons {
     public static final String MOD_ID = "masterweapons";
     public static final String MOD_NAME = "Master Weapons";
-    public static final ItemGroup ITEM_GROUP = new MWItemGroup();
+    public static final CreativeModeTab ITEM_GROUP = new MasterWeaponsTab();
     public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
 
     /**
@@ -98,8 +97,8 @@ public class MasterWeapons {
      */
     @ParametersAreNonnullByDefault
     @MethodsReturnNonnullByDefault
-    private static class MWItemGroup extends ItemGroup {
-        public MWItemGroup() {
+    private static class MasterWeaponsTab extends CreativeModeTab {
+        public MasterWeaponsTab() {
             super("master_weapons");
         }
 
@@ -109,7 +108,7 @@ public class MasterWeapons {
          * @return an item stack for the icon.
          */
         @Override
-        public ItemStack createIcon() {
+        public ItemStack makeIcon() {
             return new ItemStack(ModItems.MASTER_SWORD.get());
         }
     }

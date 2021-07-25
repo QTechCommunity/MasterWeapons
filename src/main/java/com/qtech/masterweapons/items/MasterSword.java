@@ -2,17 +2,20 @@ package com.qtech.masterweapons.items;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import net.minecraft.block.BlockState;
-import net.minecraft.enchantment.Enchantments;
-import net.minecraft.entity.ai.attributes.Attribute;
-import net.minecraft.entity.ai.attributes.AttributeModifier;
-import net.minecraft.entity.ai.attributes.Attributes;
-import net.minecraft.entity.player.PlayerEntity;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.Rarity;
-import net.minecraft.item.SwordItem;
-import net.minecraft.world.World;
+import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.entity.ai.attributes.Attribute;
+import net.minecraft.world.entity.ai.attributes.AttributeModifier;
+import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
+import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Rarity;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.enchantment.Enchantments;
+import net.minecraft.world.level.Level;
+import net.minecraft.world.level.block.state.BlockState;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 import static com.qtech.masterweapons.Constants.ATTACK_KNOCKBACK_MODIFIER;
 import static com.qtech.masterweapons.Constants.TOOL_PROPERTY;
@@ -21,6 +24,8 @@ import static com.qtech.masterweapons.Constants.TOOL_PROPERTY;
  * @see MasterItemTier
  * @author Qboi123
  */
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
 public class MasterSword extends SwordItem {
     /**
      * Constructor
@@ -32,16 +37,16 @@ public class MasterSword extends SwordItem {
     /**
      * On create event.
      *
-     * @param stack item stack that is created.
-     * @param worldIn the world where the stack is created.
+     * @param stack    item stack that is created.
+     * @param worldIn  the world where the stack is created.
      * @param playerIn the player that created it.
      */
     @Override
-    public void onCreated(ItemStack stack, World worldIn, PlayerEntity playerIn) {
-        stack.addEnchantment(Enchantments.SWEEPING, 10);
-        stack.addEnchantment(Enchantments.FIRE_ASPECT, 2);
-        stack.addEnchantment(Enchantments.LOOTING, 3);
-        super.onCreated(stack, worldIn, playerIn);
+    public void onCraftedBy(ItemStack stack, Level worldIn, Player playerIn) {
+        stack.enchant(Enchantments.SWEEPING_EDGE, 10);
+        stack.enchant(Enchantments.FIRE_ASPECT, 2);
+        stack.enchant(Enchantments.MOB_LOOTING, 3);
+        super.onCraftedBy(stack, worldIn, playerIn);
     }
 
     /**
@@ -50,7 +55,7 @@ public class MasterSword extends SwordItem {
      * @return false.
      */
     @Override
-    public boolean isDamageable() {
+    public boolean canBeDepleted() {
         return false;
     }
 
@@ -71,7 +76,7 @@ public class MasterSword extends SwordItem {
      * @return the attack damage: positive infinity.
      */
     @Override
-    public float getAttackDamage() {
+    public float getDamage() {
         return Float.POSITIVE_INFINITY;
     }
 
@@ -94,11 +99,11 @@ public class MasterSword extends SwordItem {
      * @return an multi-mapping for attribute to modifier.
      */
     @Override
-    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlotType equipmentSlot) {
+    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot equipmentSlot, ItemStack stack) {
         Multimap<Attribute, AttributeModifier> multimap = HashMultimap.create();
-        if (equipmentSlot == EquipmentSlotType.MAINHAND) {
-            multimap.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(ATTACK_DAMAGE_MODIFIER, "Weapon modifier", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
-            multimap.put(Attributes.ATTACK_SPEED, new AttributeModifier(ATTACK_SPEED_MODIFIER, "Weapon modifier", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
+        if (equipmentSlot == EquipmentSlot.MAINHAND) {
+            multimap.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
+            multimap.put(Attributes.ATTACK_SPEED, new AttributeModifier(BASE_ATTACK_SPEED_UUID, "Weapon modifier", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
             multimap.put(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(ATTACK_KNOCKBACK_MODIFIER, "Weapon modifier", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
         }
         return multimap;

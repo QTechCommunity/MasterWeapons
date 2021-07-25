@@ -13,5 +13,8 @@
   "item.masterweapons.master_nugget": "Meester klompje",
   "block.masterweapons.master_block": "Meester blok",
   "block.masterweapons.master_ore": "Meester erts",
-  "attribute.name.generic.attackKnockback": "Aanval terugstoot"
+  "attribute.name.generic.attackKnockback": "Aanval terugstoot",
+  "item.masterweapons.raw_master_core": "Ruw meester kern",
+  "block.masterweapons.deepslate_master_ore": "Wrevelsteen meester erts",
+  "block.masterweapons.raw_master_core_block": "Ruw meester kern blok"
 }

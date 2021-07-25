@@ -1,18 +1,23 @@
 package com.qtech.masterweapons.items;
 
 import com.qtech.masterweapons.ModItems;
-import net.minecraft.inventory.EquipmentSlotType;
-import net.minecraft.item.IArmorMaterial;
-import net.minecraft.item.crafting.Ingredient;
-import net.minecraft.util.SoundEvent;
-import net.minecraft.util.SoundEvents;
+import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.sounds.SoundEvent;
+import net.minecraft.sounds.SoundEvents;
+import net.minecraft.world.entity.EquipmentSlot;
+import net.minecraft.world.item.ArmorMaterial;
+import net.minecraft.world.item.crafting.Ingredient;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
  * Master armor material.
  *
  * @author Qboi123
  */
-public class MasterArmorMaterial implements IArmorMaterial {
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
+public class MasterArmorMaterial implements ArmorMaterial {
     private static final MasterArmorMaterial instance = new MasterArmorMaterial();
 
     /**
@@ -27,56 +32,29 @@ public class MasterArmorMaterial implements IArmorMaterial {
     private MasterArmorMaterial() {
     }
 
-    /**
-     * Get the durability for given equipment slot.
-     *
-     * @param slotIn the armor slot.
-     * @return the durability, always positive infinity.
-     */
     @Override
-    public int getDurability(EquipmentSlotType slotIn) {
+    public int getDurabilityForSlot(EquipmentSlot p_40410_) {
         return (int) Float.POSITIVE_INFINITY;
     }
 
-    /**
-     * Get the damage redurction for given equipment slot.
-     *
-     * @param slotIn the armor slot.
-     * @return the damage reduction amount, always positive infinity.
-     */
     @Override
-    public int getDamageReductionAmount(EquipmentSlotType slotIn) {
+    public int getDefenseForSlot(EquipmentSlot p_40411_) {
         return (int) Float.POSITIVE_INFINITY;
     }
 
-    /**
-     * Get the enchantability.
-     *
-     * @return the enchantability, always positive infinity.
-     */
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return (int) Float.POSITIVE_INFINITY;
     }
 
-    /**
-     * Get the equip sound event.
-     *
-     * @return diamond equip sound.
-     */
     @Override
-    public SoundEvent getSoundEvent() {
-        return SoundEvents.ITEM_ARMOR_EQUIP_DIAMOND;
+    public SoundEvent getEquipSound() {
+        return SoundEvents.ARMOR_EQUIP_DIAMOND;
     }
 
-    /**
-     * Get the repair material.
-     *
-     * @return an ingredient instance containing the master ingot item
-     */
     @Override
-    public Ingredient getRepairMaterial() {
-        return Ingredient.fromItems(ModItems.MASTER_INGOT.get());
+    public Ingredient getRepairIngredient() {
+        return Ingredient.of(ModItems.MASTER_INGOT.get());
     }
 
     /**

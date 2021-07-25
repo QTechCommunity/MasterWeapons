@@ -1,7 +1,7 @@
 package com.qtech.masterweapons;
 
-import net.minecraft.block.Block;
-import net.minecraft.item.Item;
+import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 
 import java.util.function.Supplier;
 
@@ -11,7 +11,7 @@ import java.util.function.Supplier;
  * @author Qboi123, Forge Team
  */
 @SuppressWarnings("unused")
-public class BlockItem extends net.minecraft.item.BlockItem {
+public class BlockItem extends net.minecraft.world.item.BlockItem {
     @Deprecated
     private final Supplier<Block> block;
 

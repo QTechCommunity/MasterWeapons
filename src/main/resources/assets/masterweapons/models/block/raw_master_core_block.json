@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "masterweapons:block/raw_master_core_block"
+  }
+}

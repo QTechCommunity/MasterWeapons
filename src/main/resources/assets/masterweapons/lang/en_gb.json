@@ -11,7 +11,10 @@
   "item.masterweapons.master_boots": "Master Boots",
   "item.masterweapons.master_ingot": "Master Ingot",
   "item.masterweapons.master_nugget": "Master Nugget",
+  "item.masterweapons.raw_master_core": "Raw Master Core",
   "block.masterweapons.master_block": "Master Block",
   "block.masterweapons.master_ore": "Master Ore",
+  "block.masterweapons.deepslate_master_ore": "Deepslate Master Ore",
+  "block.masterweapons.raw_master_core_block": "Raw Master Core Block",
   "attribute.name.generic.attackKnockback": "Attack Knockback"
 }

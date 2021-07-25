@@ -1,20 +1,25 @@
 package com.qtech.masterweapons.items;
 
 import com.qtech.masterweapons.ModItems;
-import net.minecraft.item.IItemTier;
-import net.minecraft.item.crafting.Ingredient;
+import net.minecraft.MethodsReturnNonnullByDefault;
+import net.minecraft.world.item.Tier;
+import net.minecraft.world.item.crafting.Ingredient;
+
+import javax.annotation.ParametersAreNonnullByDefault;
 
 /**
  * Master item tier.
  *
  * @author Qboi123
  */
-public class MasterItemTier implements IItemTier {
+@ParametersAreNonnullByDefault
+@MethodsReturnNonnullByDefault
+public class MasterItemTier implements Tier {
     private static final MasterItemTier instance = new MasterItemTier();
 
     /**
      * Get the instance.
-     * 
+     *
      * @return the instance.
      */
     public static MasterItemTier getInstance() {
@@ -26,61 +31,61 @@ public class MasterItemTier implements IItemTier {
 
     /**
      * Get the maximum amount of uses.
-     * 
+     *
      * @return the maximum amount of uses, always positive infinity.
      */
     @Override
-    public int getMaxUses() {
+    public int getUses() {
         return (int) Float.POSITIVE_INFINITY;
     }
 
     /**
      * Get the destroy speed / efficiency.
-     * 
+     *
      * @return the block destroy speed, always positive infinity.
      */
     @Override
-    public float getEfficiency() {
+    public float getSpeed() {
         return Float.POSITIVE_INFINITY;
     }
 
     /**
      * Get the attack damage.
-     * 
+     *
      * @return the attack damage, always positive infinity.
      */
     @Override
-    public float getAttackDamage() {
+    public float getAttackDamageBonus() {
         return Float.POSITIVE_INFINITY;
     }
 
     /**
      * Get the harvest level.
-     * 
+     *
      * @return did 6.
      */
     @Override
-    public int getHarvestLevel() {
+    public int getLevel() {
         return 6;
     }
 
     /**
      * Get the enchantability.
-     * 
+     *
      * @return the enchantability, always positive infinity.
      */
     @Override
-    public int getEnchantability() {
+    public int getEnchantmentValue() {
         return (int) Float.POSITIVE_INFINITY;
     }
 
     /**
      * Get the repair material.
-     * 
+     *
      * @return an ingredient instance containing the master ingot item.
      */
     @Override
-    public Ingredient getRepairMaterial() {
-        return Ingredient.fromItems(ModItems.MASTER_INGOT.get());
+    public Ingredient getRepairIngredient() {
+        return Ingredient.of(ModItems.MASTER_INGOT.get());
     }
 }

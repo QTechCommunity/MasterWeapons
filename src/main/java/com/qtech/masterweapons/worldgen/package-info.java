@@ -1,5 +1,5 @@
 @ParametersAreNonnullByDefault @MethodsReturnNonnullByDefault
-package com.qtech.masterweapons;
+package com.qtech.masterweapons.worldgen;
 
 import net.minecraft.MethodsReturnNonnullByDefault;
 
