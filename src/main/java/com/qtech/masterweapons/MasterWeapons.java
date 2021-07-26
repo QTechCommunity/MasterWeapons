@@ -99,7 +99,7 @@ public class MasterWeapons {
     @MethodsReturnNonnullByDefault
     private static class MasterWeaponsTab extends CreativeModeTab {
         public MasterWeaponsTab() {
-            super("master_weapons");
+            super("ultreon_weapons");
         }
 
         /**
@@ -109,7 +109,7 @@ public class MasterWeapons {
          */
         @Override
         public ItemStack makeIcon() {
-            return new ItemStack(ModItems.MASTER_SWORD.get());
+            return new ItemStack(ModItems.ULTREON_SWORD.get());
         }
     }
 }

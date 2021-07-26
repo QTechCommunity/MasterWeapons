@@ -54,7 +54,7 @@ public class MasterArmorMaterial implements ArmorMaterial {
 
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.of(ModItems.MASTER_INGOT.get());
+        return Ingredient.of(ModItems.ULTREON_INGOT.get());
     }
 
     /**
@@ -64,7 +64,7 @@ public class MasterArmorMaterial implements ArmorMaterial {
      */
     @Override
     public String getName() {
-        return "masterweapons:master";
+        return "masterweapons:ultreon";
     }
 
     /**

@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "masterweapons:raw_master_core"
-  },
-  "result": "masterweapons:master_ingot",
-  "experience": 1.0,
-  "cookingtime": 200
-}

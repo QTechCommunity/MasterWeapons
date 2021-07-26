@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "ingredients": [
+    {
+      "item": "masterweapons:ultreon_ingot"
+    }
+  ],
+  "result": {
+    "item": "masterweapons:ultreon_nugget",
+    "count": 9
+  }
+}

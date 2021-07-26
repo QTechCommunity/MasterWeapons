@@ -86,6 +86,6 @@ public class MasterItemTier implements Tier {
      */
     @Override
     public Ingredient getRepairIngredient() {
-        return Ingredient.of(ModItems.MASTER_INGOT.get());
+        return Ingredient.of(ModItems.ULTREON_INGOT.get());
     }
 }

@@ -1,0 +1,9 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": {
+    "item": "masterweapons:raw_ultreon"
+  },
+  "result": "masterweapons:ultreon_ingot",
+  "experience": 1.0,
+  "cookingtime": 100
+}

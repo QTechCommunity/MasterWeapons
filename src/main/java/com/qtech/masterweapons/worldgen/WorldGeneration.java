@@ -34,13 +34,18 @@ public class WorldGeneration {
     @SubscribeEvent
     public static void generate(BiomeLoadingEvent event) {
         if (!initialized) {
-            oreMasterTargetList = ImmutableList.of(OreConfiguration.target(OreConfiguration.Predicates.STONE_ORE_REPLACEABLES, ModBlocks.MASTER_ORE.get().defaultBlockState()), OreConfiguration.target(OreConfiguration.Predicates.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_MASTER_ORE.get().defaultBlockState()));
+            oreMasterTargetList = ImmutableList.of(OreConfiguration.target(OreConfiguration.Predicates.STONE_ORE_REPLACEABLES, ModBlocks.ULTREON_ORE.get().defaultBlockState()), OreConfiguration.target(OreConfiguration.Predicates.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_ULTREON_ORE.get().defaultBlockState()));
 //            feature = Feature.EMERALD_ORE
-//                    .withConfiguration(new ReplaceBlockConfig(Blocks.STONE.getDefaultState(), ModBlocks.MASTER_ORE.get().getDefaultState()))
+//                    .withConfiguration(new ReplaceBlockConfig(Blocks.STONE.getDefaultState(), ModBlocks.ULTREON_ORE.get().getDefaultState()))
 //                    .withPlacement(Placement.COUNT.configure(new FeatureSpreadConfig(1)))
 //                    .withPlacement(Placement.RANGE.configure(new TopSolidRangeConfig(0, 0, 21)))
 //                    .withPlacement(Placement.CHANCE.configure(new ChanceConfig(64)));
-            feature = Feature.REPLACE_SINGLE_BLOCK.configured(new ReplaceBlockConfiguration(oreMasterTargetList)).rangeUniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(15)).squared();
+            feature = Feature.REPLACE_SINGLE_BLOCK
+                    .configured(new ReplaceBlockConfiguration(oreMasterTargetList)).rangeUniform(VerticalAnchor.bottom(), VerticalAnchor.absolute(15))
+                    .count(16)
+//                    .count(1)
+//                    .decorated(FeatureDecorator.CHANCE.configured(new ChanceDecoratorConfiguration(1920)))
+                    .squared();
 
             MasterWeapons.LOGGER.debug("ORE_GEN: " + feature);
             MasterWeapons.LOGGER.debug("ORE_GEN: " + feature);

@@ -1,9 +1,0 @@
-{
-  "type": "minecraft:smelting",
-  "ingredient": {
-    "item": "masterweapons:deepslate_master_ore"
-  },
-  "result": "masterweapons:master_ingot",
-  "experience": 1.0,
-  "cookingtime": 200
-}

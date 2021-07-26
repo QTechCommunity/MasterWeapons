@@ -1,0 +1,121 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "masterweapons:ultreon_nugget_from_smelting"
+    ]
+  },
+  "criteria": {
+    "has_ultreon_pickaxe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "masterweapons:ultreon_pickaxe"
+          }
+        ]
+      }
+    },
+    "has_ultreon_shovel": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "masterweapons:ultreon_shovel"
+          }
+        ]
+      }
+    },
+    "has_ultreon_axe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "masterweapons:ultreon_axe"
+          }
+        ]
+      }
+    },
+    "has_ultreon_hoe": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "masterweapons:ultreon_hoe"
+          }
+        ]
+      }
+    },
+    "has_ultreon_sword": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "masterweapons:ultreon_sword"
+          }
+        ]
+      }
+    },
+    "has_ultreon_helmet": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "masterweapons:ultreon_helmet"
+          }
+        ]
+      }
+    },
+    "has_ultreon_chestplate": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "masterweapons:ultreon_chestplate"
+          }
+        ]
+      }
+    },
+    "has_ultreon_leggings": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "masterweapons:ultreon_leggings"
+          }
+        ]
+      }
+    },
+    "has_ultreon_boots": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "item": "masterweapons:ultreon_boots"
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "masterweapons:ultreon_nugget_from_smelting"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ultreon_pickaxe",
+      "has_ultreon_shovel",
+      "has_ultreon_axe",
+      "has_ultreon_hoe",
+      "has_ultreon_sword",
+      "has_ultreon_helmet",
+      "has_ultreon_chestplate",
+      "has_ultreon_leggings",
+      "has_ultreon_boots",
+      "has_ultreon_horse_armor",
+      "has_the_recipe"
+    ]
+  ]
+}

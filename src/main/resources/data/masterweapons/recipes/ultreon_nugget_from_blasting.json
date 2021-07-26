@@ -1,0 +1,35 @@
+{
+  "type": "minecraft:blasting",
+  "ingredient": [
+    {
+      "item": "masterweapons:ultreon_pickaxe"
+    },
+    {
+      "item": "masterweapons:ultreon_shovel"
+    },
+    {
+      "item": "masterweapons:ultreon_axe"
+    },
+    {
+      "item": "masterweapons:ultreon_hoe"
+    },
+    {
+      "item": "masterweapons:ultreon_sword"
+    },
+    {
+      "item": "masterweapons:ultreon_helmet"
+    },
+    {
+      "item": "masterweapons:ultreon_chestplate"
+    },
+    {
+      "item": "masterweapons:ultreon_leggings"
+    },
+    {
+      "item": "masterweapons:ultreon_boots"
+    }
+  ],
+  "result": "masterweapons:ultreon_nugget",
+  "experience": 0.1,
+  "cookingtime": 100
+}

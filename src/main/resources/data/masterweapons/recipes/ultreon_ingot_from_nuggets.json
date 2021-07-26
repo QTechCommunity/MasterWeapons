@@ -1,0 +1,17 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "group": "ultreon_ingot",
+  "pattern": [
+    "###",
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "masterweapons:ultreon_nugget"
+    }
+  },
+  "result": {
+    "item": "masterweapons:ultreon_ingot"
+  }
+}
