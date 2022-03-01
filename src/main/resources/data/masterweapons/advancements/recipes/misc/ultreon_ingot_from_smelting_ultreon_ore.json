@@ -2,19 +2,19 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "masterweapons:ultreon_ingot_from_smelting_ultreon_ore"
+      "masterweapons:master_ingot_from_smelting_master_ore"
     ]
   },
   "criteria": {
-    "has_ultreon_ore": {
+    "has_master_ore": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "masterweapons:ultreon_ore"
+            "item": "masterweapons:master_ore"
           },
           {
-            "item": "masterweapons:raw_ultreon"
+            "item": "masterweapons:raw_master"
           }
         ]
       }
@@ -22,13 +22,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "masterweapons:ultreon_ingot"
+        "recipe": "masterweapons:master_ingot"
       }
     }
   },
   "requirements": [
     [
-      "has_ultreon_ore",
+      "has_master_ore",
       "has_the_recipe"
     ]
   ]

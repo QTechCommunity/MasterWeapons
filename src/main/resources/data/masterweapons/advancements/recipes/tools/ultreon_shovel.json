@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "masterweapons:ultreon_shovel"
+      "masterweapons:master_shovel"
     ]
   },
   "criteria": {
-    "has_ultreon_ingot": {
+    "has_master_ingot": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "masterweapons:ultreon_ingot"
+            "item": "masterweapons:master_ingot"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "masterweapons:ultreon_shovel"
+        "recipe": "masterweapons:master_shovel"
       }
     }
   },
   "requirements": [
     [
-      "has_ultreon_ingot",
+      "has_master_ingot",
       "has_the_recipe"
     ]
   ]

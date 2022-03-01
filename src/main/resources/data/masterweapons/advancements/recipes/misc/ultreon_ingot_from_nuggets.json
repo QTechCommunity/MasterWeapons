@@ -2,16 +2,16 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "masterweapons:ultreon_ingot_from_nuggets"
+      "masterweapons:master_ingot_from_nuggets"
     ]
   },
   "criteria": {
-    "has_ultreon_nugget": {
+    "has_master_nugget": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "masterweapons:ultreon_nugget"
+            "item": "masterweapons:master_nugget"
           }
         ]
       }
@@ -19,13 +19,13 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "masterweapons:ultreon_ingot_from_nuggets"
+        "recipe": "masterweapons:master_ingot_from_nuggets"
       }
     }
   },
   "requirements": [
     [
-      "has_ultreon_nugget",
+      "has_master_nugget",
       "has_the_recipe"
     ]
   ]

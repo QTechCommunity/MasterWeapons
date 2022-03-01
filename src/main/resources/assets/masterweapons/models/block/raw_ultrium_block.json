@@ -1,0 +1,6 @@
+{
+  "parent": "block/cube_all",
+  "textures": {
+    "all": "masterweapons:block/raw_ultrium_block"
+  }
+}

@@ -10,10 +10,10 @@
       "item": "minecraft:stick"
     },
     "X": {
-      "item": "masterweapons:ultreon_ingot"
+      "item": "masterweapons:master_ingot"
     }
   },
   "result": {
-    "item": "masterweapons:ultreon_sword"
+    "item": "masterweapons:master_sword"
   }
 }

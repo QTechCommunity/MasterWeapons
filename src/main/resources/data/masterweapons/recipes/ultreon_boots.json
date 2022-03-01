@@ -6,10 +6,10 @@
   ],
   "key": {
     "X": {
-      "item": "masterweapons:ultreon_ingot"
+      "item": "masterweapons:master_ingot"
     }
   },
   "result": {
-    "item": "masterweapons:ultreon_boots"
+    "item": "masterweapons:master_boots"
   }
 }

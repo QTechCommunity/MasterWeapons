@@ -2,96 +2,96 @@
   "parent": "minecraft:recipes/root",
   "rewards": {
     "recipes": [
-      "masterweapons:ultreon_nugget_from_smelting"
+      "masterweapons:master_nugget_from_smelting"
     ]
   },
   "criteria": {
-    "has_ultreon_pickaxe": {
+    "has_master_pickaxe": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "masterweapons:ultreon_pickaxe"
+            "item": "masterweapons:master_pickaxe"
           }
         ]
       }
     },
-    "has_ultreon_shovel": {
+    "has_master_shovel": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "masterweapons:ultreon_shovel"
+            "item": "masterweapons:master_shovel"
           }
         ]
       }
     },
-    "has_ultreon_axe": {
+    "has_master_axe": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "masterweapons:ultreon_axe"
+            "item": "masterweapons:master_axe"
           }
         ]
       }
     },
-    "has_ultreon_hoe": {
+    "has_master_hoe": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "masterweapons:ultreon_hoe"
+            "item": "masterweapons:master_hoe"
           }
         ]
       }
     },
-    "has_ultreon_sword": {
+    "has_master_sword": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "masterweapons:ultreon_sword"
+            "item": "masterweapons:master_sword"
           }
         ]
       }
     },
-    "has_ultreon_helmet": {
+    "has_master_helmet": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "masterweapons:ultreon_helmet"
+            "item": "masterweapons:master_helmet"
           }
         ]
       }
     },
-    "has_ultreon_chestplate": {
+    "has_master_chestplate": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "masterweapons:ultreon_chestplate"
+            "item": "masterweapons:master_chestplate"
           }
         ]
       }
     },
-    "has_ultreon_leggings": {
+    "has_master_leggings": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "masterweapons:ultreon_leggings"
+            "item": "masterweapons:master_leggings"
           }
         ]
       }
     },
-    "has_ultreon_boots": {
+    "has_master_boots": {
       "trigger": "minecraft:inventory_changed",
       "conditions": {
         "items": [
           {
-            "item": "masterweapons:ultreon_boots"
+            "item": "masterweapons:master_boots"
           }
         ]
       }
@@ -99,22 +99,22 @@
     "has_the_recipe": {
       "trigger": "minecraft:recipe_unlocked",
       "conditions": {
-        "recipe": "masterweapons:ultreon_nugget_from_smelting"
+        "recipe": "masterweapons:master_nugget_from_smelting"
       }
     }
   },
   "requirements": [
     [
-      "has_ultreon_pickaxe",
-      "has_ultreon_shovel",
-      "has_ultreon_axe",
-      "has_ultreon_hoe",
-      "has_ultreon_sword",
-      "has_ultreon_helmet",
-      "has_ultreon_chestplate",
-      "has_ultreon_leggings",
-      "has_ultreon_boots",
-      "has_ultreon_horse_armor",
+      "has_master_pickaxe",
+      "has_master_shovel",
+      "has_master_axe",
+      "has_master_hoe",
+      "has_master_sword",
+      "has_master_helmet",
+      "has_master_chestplate",
+      "has_master_leggings",
+      "has_master_boots",
+      "has_master_horse_armor",
       "has_the_recipe"
     ]
   ]

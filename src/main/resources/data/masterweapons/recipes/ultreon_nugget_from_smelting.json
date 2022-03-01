@@ -2,34 +2,34 @@
   "type": "minecraft:smelting",
   "ingredient": [
     {
-      "item": "masterweapons:ultreon_pickaxe"
+      "item": "masterweapons:master_pickaxe"
     },
     {
-      "item": "masterweapons:ultreon_shovel"
+      "item": "masterweapons:master_shovel"
     },
     {
-      "item": "masterweapons:ultreon_axe"
+      "item": "masterweapons:master_axe"
     },
     {
-      "item": "masterweapons:ultreon_hoe"
+      "item": "masterweapons:master_hoe"
     },
     {
-      "item": "masterweapons:ultreon_sword"
+      "item": "masterweapons:master_sword"
     },
     {
-      "item": "masterweapons:ultreon_helmet"
+      "item": "masterweapons:master_helmet"
     },
     {
-      "item": "masterweapons:ultreon_chestplate"
+      "item": "masterweapons:master_chestplate"
     },
     {
-      "item": "masterweapons:ultreon_leggings"
+      "item": "masterweapons:master_leggings"
     },
     {
-      "item": "masterweapons:ultreon_boots"
+      "item": "masterweapons:master_boots"
     }
   ],
-  "result": "masterweapons:ultreon_nugget",
+  "result": "masterweapons:master_nugget",
   "experience": 0.1,
   "cookingtime": 200
 }

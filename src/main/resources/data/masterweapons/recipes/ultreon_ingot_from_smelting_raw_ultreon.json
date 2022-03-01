@@ -1,9 +1,9 @@
 {
   "type": "minecraft:smelting",
   "ingredient": {
-    "item": "masterweapons:raw_ultreon"
+    "item": "masterweapons:raw_master"
   },
-  "result": "masterweapons:ultreon_ingot",
+  "result": "masterweapons:master_ingot",
   "experience": 1.0,
   "cookingtime": 200
 }
