@@ -1,0 +1,9 @@
+{
+    "type": "minecraft:blasting",
+    "ingredient": {
+        "item": "masterweapons:deepslate_ultran_ore"
+    },
+    "result": "masterweapons:ultran_ingot",
+    "experience": 1.0,
+    "cookingtime": 100
+}

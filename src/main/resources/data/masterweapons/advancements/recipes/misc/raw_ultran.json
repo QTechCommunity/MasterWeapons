@@ -2,16 +2,16 @@
     "parent": "minecraft:recipes/root",
     "rewards": {
         "recipes": [
-            "masterweapons:ultran_ingot_from_blasting"
+            "masterweapons:raw_ultran"
         ]
     },
     "criteria": {
-        "has_ultran_ore": {
+        "has_raw_ultran_block": {
             "trigger": "minecraft:inventory_changed",
             "conditions": {
                 "items": [
                     {
-                        "item": "masterweapons:ultran_ore"
+                        "item": "masterweapons:raw_ultran_block"
                     }
                 ]
             }
@@ -19,13 +19,13 @@
         "has_the_recipe": {
             "trigger": "minecraft:recipe_unlocked",
             "conditions": {
-                "recipe": "masterweapons:ultran_ingot_from_blasting"
+                "recipe": "masterweapons:raw_ultran"
             }
         }
     },
     "requirements": [
         [
-            "has_ultran_ore",
+            "has_raw_ultran_block",
             "has_the_recipe"
         ]
     ]

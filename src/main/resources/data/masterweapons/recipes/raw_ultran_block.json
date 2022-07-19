@@ -1,0 +1,16 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "masterweapons:raw_ultran"
+        }
+    },
+    "result": {
+        "item": "masterweapons:raw_ultran_block"
+    }
+}
