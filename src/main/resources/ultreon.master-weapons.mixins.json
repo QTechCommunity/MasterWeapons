@@ -1,0 +1,15 @@
+{
+    "required": true,
+    "minVersion": "0.8",
+    "package": "com.ultreon.masterweapons.mixin",
+    "compatibilityLevel": "JAVA_17",
+    "refmap": "ultreon.master-weapons.refmap.json",
+    "mixins": [
+        "EnchantmentHelperMixin"
+    ],
+    "client": [
+    ],
+    "injectors": {
+        "defaultRequire": 1
+    }
+}

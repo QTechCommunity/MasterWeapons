@@ -1,0 +1,17 @@
+{
+    "type": "minecraft:crafting_shaped",
+    "group": "ultran_ingot",
+    "pattern": [
+        "###",
+        "###",
+        "###"
+    ],
+    "key": {
+        "#": {
+            "item": "masterweapons:ultran_nugget"
+        }
+    },
+    "result": {
+        "item": "masterweapons:ultran_ingot"
+    }
+}
