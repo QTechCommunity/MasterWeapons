@@ -1,0 +1,9 @@
+{
+    "replace": false,
+    "values": [
+        "masterweapons:ultran_block",
+        "masterweapons:raw_ultran_block",
+        "masterweapons:ultran_ore",
+        "masterweapons:deepslate_ultran_ore"
+    ]
+}
