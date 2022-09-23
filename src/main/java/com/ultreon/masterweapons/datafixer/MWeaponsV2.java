@@ -9,6 +9,12 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.function.Supplier;
 
+/**
+ * Base data fixer for the mod.
+ *
+ * @author Qboi123
+ * @since 3.0.0
+ */
 public class MWeaponsV2 extends NamespacedSchema {
     public MWeaponsV2(int versionKey, Schema parent) {
         super(versionKey, parent);

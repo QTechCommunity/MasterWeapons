@@ -8,12 +8,15 @@ import net.minecraftforge.event.TickEvent;
 import net.minecraftforge.event.entity.living.LivingDamageEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
+import org.slf4j.Marker;
+import org.slf4j.MarkerFactory;
 
 import java.util.HashSet;
 import java.util.Set;
 
 @Mod.EventBusSubscriber(modid = MasterWeapons.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CommonEvents {
+    private static final Marker MARKER = MarkerFactory.getMarker("CommonEvents");
     private static Set<Player> flyables = new HashSet<>();
 
     @SubscribeEvent

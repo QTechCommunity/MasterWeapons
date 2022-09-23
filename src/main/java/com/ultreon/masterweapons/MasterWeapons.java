@@ -3,26 +3,25 @@ package com.ultreon.masterweapons;
 import com.mojang.datafixers.DataFixerBuilder;
 import com.mojang.datafixers.schemas.Schema;
 import com.ultreon.masterweapons.datafixer.MWeaponsV2;
-import com.ultreon.masterweapons.init.ModBlocks;
-import com.ultreon.masterweapons.init.ModConfiguredFeatures;
-import com.ultreon.masterweapons.init.ModItems;
-import com.ultreon.masterweapons.init.ModPlacedFeatures;
+import com.ultreon.masterweapons.init.*;
 import net.minecraft.Util;
 import net.minecraft.util.datafix.fixes.BlockRenameFix;
 import net.minecraft.util.datafix.fixes.ItemRenameFix;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLDedicatedServerSetupEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
+import org.slf4j.MarkerFactory;
 
 import java.util.function.BiFunction;
 
@@ -36,33 +35,44 @@ public class MasterWeapons {
     public static final String MOD_ID = "masterweapons";
     public static final String MOD_NAME = "Master Weapons";
     public static final CreativeModeTab TAB = new ModCreativeTab();
-    public static final Logger LOGGER = LogManager.getLogger(MOD_NAME);
+    public static final Logger LOGGER = LoggerFactory.getLogger(MOD_NAME);
+    private static final Marker INIT_MARKER = MarkerFactory.getMarker("Init");
+    private static final Marker LOAD_MARKER = MarkerFactory.getMarker("Load");
+    private static final Marker SETUP_MARKER = MarkerFactory.getMarker("Setup");
+    private static final Marker CLIENT_MARKER = MarkerFactory.getMarker("Client");
+    private static final Marker SERVER_MARKER = MarkerFactory.getMarker("Server");
 
     /**
-     * DO NOT INVOKE
+     * DO NOT INVOKE, THIS IS FOR MOD LOADING ONLY.
+     * <p>
+     * This method is called by Forge when the mod is loaded.
+     * </p>
      */
     public MasterWeapons() {
-        LOGGER.info("Just loaded Master Weapons Mod initializer.");
+        LOGGER.info(INIT_MARKER, "Just loaded Master Weapons Mod initializer.");
 
         // Registering event handlers to mod eventbus.
-        LOGGER.info("Registering event handlers to mod eventbus.");
+        LOGGER.info(INIT_MARKER, "Registering event handlers to mod eventbus.");
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
         modEventBus.addListener(this::serverSetup);
         modEventBus.addListener(this::commonSetup);
-        modEventBus.addListener(this::clientSetup);
 
         // Registering items and blocks to mod eventbus.
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
         ModPlacedFeatures.register(modEventBus);
         ModConfiguredFeatures.register(modEventBus);
+        ModEntities.register(modEventBus);
 
         // Registering event handlers to forge eventbus.
-        LOGGER.info("Registering event handlers to forge eventbus.");
+        LOGGER.info(INIT_MARKER, "Registering event handlers to forge eventbus.");
         IEventBus forgeEventBus = MinecraftForge.EVENT_BUS;
         forgeEventBus.register(this);
 
         registerDataFixers();
+
+        // Initialized.
+        LOGGER.info(INIT_MARKER, "Initialized Master Weapons Mod.");
     }
 
     // Todo: make the data fixers work.
@@ -98,46 +108,48 @@ public class MasterWeapons {
 
     /**
      * Server setup handler.
-     * Used for initializing non-graphical side.
+     * <p>
+     *     This method is called by Forge when the server is starting.
+     *     It is used for initializing non-graphical stuff.
+     * </p>
      *
      * @param event an {@link FMLDedicatedServerSetupEvent} object.
      */
     private void serverSetup(final FMLDedicatedServerSetupEvent event) {
-        LOGGER.info("Master Weapons mod on dedicated server setup.");
+        LOGGER.info(SETUP_MARKER, "Master Weapons mod on dedicated server setup.");
     }
 
     /**
      * Common setup handler.
-     * Used for dual sided initialization. (Client & server.)
+     * <p>
+     *     This method is called by Forge when the mod is loaded.
+     *     It is used for initializing stuff that is needed for both client and server.
+     * </p>
      *
      * @param event an {@link FMLCommonSetupEvent} object.
      */
     private void commonSetup(final FMLCommonSetupEvent event) {
-        LOGGER.info("Master Weapons mod on generic setup.");
-    }
-
-    /**
-     * Client setup handler.
-     * Used for initializing graphical side.
-     *
-     * @param event an {@link FMLClientSetupEvent} object.
-     */
-    private void clientSetup(final FMLClientSetupEvent event) {
-        LOGGER.info("Master Weapons mod on client setup.");
+        LOGGER.info(SETUP_MARKER, "Master Weapons mod on generic setup.");
     }
 
     /**
      * Server starting handler.
+     * <p>
+     *     This method is called by Forge when the server is starting.
+     * </p>
      *
      * @param event an {@link FMLDedicatedServerSetupEvent} object.
      */
     @SubscribeEvent
-    public void serverStart(FMLDedicatedServerSetupEvent event) {
-        LOGGER.info("Server starting with Master Weapons!");
+    public void serverStart(ServerStartingEvent event) {
+        LOGGER.info(SERVER_MARKER, "Server starting with Master Weapons!");
     }
 
     /**
      * The Master Weapons mod item group (tab).
+     * <p>
+     *     This class is used to create a tab for the mod.
+     * </p>
      *
      * @author Qboi123
      */

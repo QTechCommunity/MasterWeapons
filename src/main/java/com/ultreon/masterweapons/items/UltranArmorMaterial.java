@@ -10,22 +10,36 @@ import net.minecraft.world.item.crafting.Ingredient;
 import org.jetbrains.annotations.NotNull;
 
 /**
- * Master armor material.
+ * Ultran armor material.
  *
  * @author Qboi123
+ * @since 2.0.0
  */
 public class UltranArmorMaterial implements ArmorMaterial {
+    /**
+     * The armor material instance.
+     *
+     * @since 2.0.0
+     */
     private static final UltranArmorMaterial instance = new UltranArmorMaterial();
 
     /**
      * Get the instance.
      *
      * @return the instance.
+     * @author Qboi123
+     * @since 2.0.0
      */
     public static UltranArmorMaterial getInstance() {
         return instance;
     }
 
+    /**
+     * Constructor for the Ultran Armor Material.
+     *
+     * @author Qboi123
+     * @since 2.0.0
+     */
     private UltranArmorMaterial() {
     }
 
@@ -34,6 +48,8 @@ public class UltranArmorMaterial implements ArmorMaterial {
      *
      * @param slotIn the armor slot.
      * @return the durability, always positive infinity.
+     * @author Qboi123
+     * @since 2.0.0
      */
     @Override
     public int getDurabilityForSlot(EquipmentSlot slotIn) {
@@ -45,6 +61,8 @@ public class UltranArmorMaterial implements ArmorMaterial {
      *
      * @param slotIn the armor slot.
      * @return the damage reduction amount, always positive infinity.
+     * @author Qboi123
+     * @since 2.0.0
      */
     @Override
     public int getDefenseForSlot(EquipmentSlot slotIn) {
@@ -55,6 +73,8 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * Get the enchantment value.
      *
      * @return the enchantment value, always positive infinity.
+     * @author Qboi123
+     * @since 2.0.0
      */
     @Override
     public int getEnchantmentValue() {
@@ -65,6 +85,8 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * Get the sound for equipping the armor.
      *
      * @return diamond equip sound.
+     * @author Qboi123
+     * @since 2.0.0
      */
     @NotNull
     @Override
@@ -76,6 +98,8 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * Get the ingredient to repair the item with.
      *
      * @return an ingredient instance containing the master ingot item
+     * @author Qboi123
+     * @since 2.0.0
      */
     @NotNull
     @Override
@@ -87,6 +111,8 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * Get the type identifier.
      *
      * @return the resource location: {@code masterweapons:ultran}
+     * @author Qboi123
+     * @since 2.0.0
      */
     @NotNull
     @Override
@@ -98,6 +124,8 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * Get the armor toughness.
      *
      * @return the armor toughness, always positive infinity.
+     * @author Qboi123
+     * @since 2.0.0
      */
     @Override
     public float getToughness() {
@@ -108,6 +136,8 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * Get the knockback resistance.
      *
      * @return 1024.0f
+     * @author Qboi123
+     * @since 2.0.0
      */
     @Override
     public float getKnockbackResistance() {

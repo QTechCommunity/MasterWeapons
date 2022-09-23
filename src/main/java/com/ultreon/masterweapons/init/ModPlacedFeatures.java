@@ -13,15 +13,30 @@ import net.minecraftforge.registries.RegistryObject;
 
 import java.util.List;
 
+/**
+ * Placed features initialization class.
+ *
+ * @author Qboi123
+ * @see PlacedFeature
+ * @since 3.0.0
+ */
 public class ModPlacedFeatures {
     private static final DeferredRegister<PlacedFeature> REGISTER = DeferredRegister.create(Registry.PLACED_FEATURE_REGISTRY, MasterWeapons.MOD_ID);
 
+    /**
+     * Placed feature for ultran ore.
+     */
     public static final RegistryObject<PlacedFeature> ULTRAN_ORE = REGISTER.register("ultran_ore", () -> new PlacedFeature(ModConfiguredFeatures.ULTRAN_ORE.getHolder().orElseThrow(), List.of(
             CountPlacement.of(1),
             HeightRangePlacement.uniform(VerticalAnchor.TOP, VerticalAnchor.BOTTOM),
             RarityFilter.onAverageOnceEvery(64)
     )));
 
+    /**
+     * Registers all placed features.
+     *
+     * @param modEventBus the event bus to register the placed features with.
+     */
     public static void register(IEventBus modEventBus) {
         REGISTER.register(modEventBus);
     }

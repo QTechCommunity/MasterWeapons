@@ -3,6 +3,8 @@ package com.ultreon.masterweapons;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.function.Supplier;
 
@@ -23,9 +25,9 @@ public class ModBlockItem extends BlockItem {
         this.block = blockIn;
     }
 
-    @SuppressWarnings("ConstantConditions")
+    @NotNull
     public Block getBlock() {
-        return this.getBlockRaw() == null ? null : this.getBlockRaw().delegate.get();
+        return this.getBlockRaw() == null ? Blocks.AIR : this.getBlockRaw().delegate.get();
     }
 
     private Block getBlockRaw() {

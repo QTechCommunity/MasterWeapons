@@ -4,13 +4,16 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.ultreon.masterweapons.common.UltranToolBase;
 import com.ultreon.masterweapons.init.ModRarities;
+import net.minecraft.core.BlockPos;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
+import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.HoeItem;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
+import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.state.BlockState;
 import org.jetbrains.annotations.NotNull;
 
@@ -18,6 +21,9 @@ import static com.ultreon.masterweapons.Constants.BASE_ATTACK_KNOCKBACK_UUID;
 import static com.ultreon.masterweapons.Constants.TOOL_PROPERTY;
 
 /**
+ * Ultran Hoe
+ * This is not your ordinary hoe, it is a weapon. Allowing the player to kill anything in a single hit.
+ *
  * @author Qboi123
  * @see UltranToolTier
  */
@@ -45,6 +51,7 @@ public class UltranHoe extends HoeItem implements UltranToolBase {
      *
      * @param stack the stack
      * @return non-damaged.
+     * @since 3.0.0
      */
     @Override
     public boolean isDamaged(ItemStack stack) {
@@ -91,5 +98,10 @@ public class UltranHoe extends HoeItem implements UltranToolBase {
             multimap.put(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(BASE_ATTACK_KNOCKBACK_UUID, "Weapon modifier", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
         }
         return multimap;
+    }
+
+    @Override
+    public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
+        return !pState.requiresCorrectToolForDrops();
     }
 }

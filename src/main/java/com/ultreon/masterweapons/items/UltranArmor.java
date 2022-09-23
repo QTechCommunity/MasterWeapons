@@ -19,8 +19,12 @@ import java.util.UUID;
 import static com.ultreon.masterweapons.Constants.ARMOR_PROPERTY;
 
 /**
+ * Ultran Armor
+ * The ultran armor isn't your average armor. It's the most powerful armor ever. Making every being invincible with more effects.
+ *
  * @author Qboi123
  * @see UltranArmorMaterial
+ * @since 2.0.0
  */
 public class UltranArmor extends ArmorItem implements UltranArmorBase {
     private static final UUID[] BASE_ARMOR_UUIDS = new UUID[]{UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
@@ -29,6 +33,7 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
      * Constructor
      *
      * @param slot the equipment slot for the armor.
+     * @since 2.0.0
      */
     public UltranArmor(EquipmentSlot slot) {
         super(UltranArmorMaterial.getInstance(), slot, ARMOR_PROPERTY);
@@ -37,7 +42,9 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
     /**
      * Master armor pieces are unbreakable.
      *
+     * @param stack the item stack to check.
      * @return false.
+     * @since 2.0.0
      */
     @Override
     public boolean isDamageable(ItemStack stack) {
@@ -50,6 +57,7 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
      *
      * @param stack the stack
      * @return non-damaged.
+     * @since 3.0.0
      */
     @Override
     public boolean isDamaged(ItemStack stack) {

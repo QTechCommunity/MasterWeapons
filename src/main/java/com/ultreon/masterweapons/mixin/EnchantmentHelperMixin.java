@@ -16,6 +16,10 @@ import org.spongepowered.asm.mixin.injection.At;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 
+/**
+ * Mixin for {@link EnchantmentHelper}
+ * This mixin is meant to intercept enchantment level checks for ultran tools and weapons.
+ */
 @Mixin(EnchantmentHelper.class)
 public class EnchantmentHelperMixin {
     @Inject(method = "getEnchantmentLevel(Lnet/minecraft/world/item/enchantment/Enchantment;Lnet/minecraft/world/entity/LivingEntity;)I", at = @At("RETURN"), cancellable = true)
@@ -67,7 +71,7 @@ public class EnchantmentHelperMixin {
                         if (pEnchantment == Enchantments.FALL_PROTECTION) {
                             cir.setReturnValue(100);
                         } else if (pEnchantment == Enchantments.DEPTH_STRIDER) {
-                            cir.setReturnValue(5);
+                            cir.setReturnValue(10);
                         }
                     }
                 }
