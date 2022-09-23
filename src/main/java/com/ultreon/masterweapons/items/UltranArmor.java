@@ -1,9 +1,9 @@
-package com.ultreon.masterweapons.items;
+package com.ultreon.mods.masterweapons.items;
 
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
-import com.ultreon.masterweapons.common.UltranArmorBase;
-import com.ultreon.masterweapons.init.ModRarities;
+import com.ultreon.mods.masterweapons.common.UltranArmorBase;
+import com.ultreon.mods.masterweapons.init.ModRarities;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
@@ -16,7 +16,7 @@ import org.jetbrains.annotations.NotNull;
 
 import java.util.UUID;
 
-import static com.ultreon.masterweapons.Constants.ARMOR_PROPERTY;
+import static com.ultreon.mods.masterweapons.Constants.ARMOR_PROPERTY;
 
 /**
  * Ultran Armor

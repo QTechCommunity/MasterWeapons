@@ -1,4 +1,4 @@
-package com.ultreon.masterweapons.init;
+package com.ultreon.mods.masterweapons.init;
 
 import net.minecraft.ChatFormatting;
 import net.minecraft.world.item.Rarity;

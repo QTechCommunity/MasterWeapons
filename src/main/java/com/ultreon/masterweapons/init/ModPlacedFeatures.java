@@ -1,6 +1,6 @@
-package com.ultreon.masterweapons.init;
+package com.ultreon.mods.masterweapons.init;
 
-import com.ultreon.masterweapons.MasterWeapons;
+import com.ultreon.mods.masterweapons.MasterWeapons;
 import net.minecraft.core.Registry;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;

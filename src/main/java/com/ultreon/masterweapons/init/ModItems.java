@@ -1,9 +1,9 @@
-package com.ultreon.masterweapons.init;
+package com.ultreon.mods.masterweapons.init;
 
-import com.ultreon.masterweapons.MasterWeapons;
-import com.ultreon.masterweapons.items.*;
+import com.ultreon.mods.masterweapons.MasterWeapons;
+import com.ultreon.mods.masterweapons.items.*;
 import net.minecraft.world.entity.EquipmentSlot;
-import net.minecraft.world.item.*;
+import net.minecraft.world.item.Item;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;

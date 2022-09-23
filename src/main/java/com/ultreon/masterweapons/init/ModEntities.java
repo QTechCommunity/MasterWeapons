@@ -1,8 +1,8 @@
 
-package com.ultreon.masterweapons.init;
+package com.ultreon.mods.masterweapons.init;
 
-import com.ultreon.masterweapons.MasterWeapons;
-import com.ultreon.masterweapons.world.entity.projectile.UltranArrow;
+import com.ultreon.mods.masterweapons.MasterWeapons;
+import com.ultreon.mods.masterweapons.world.entity.projectile.UltranArrow;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
 import net.minecraft.world.item.Item;

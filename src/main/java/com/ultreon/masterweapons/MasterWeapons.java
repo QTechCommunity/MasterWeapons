@@ -1,9 +1,9 @@
-package com.ultreon.masterweapons;
+package com.ultreon.mods.masterweapons;
 
 import com.mojang.datafixers.DataFixerBuilder;
 import com.mojang.datafixers.schemas.Schema;
-import com.ultreon.masterweapons.datafixer.MWeaponsV2;
-import com.ultreon.masterweapons.init.*;
+import com.ultreon.mods.masterweapons.datafixer.MWeaponsV2;
+import com.ultreon.mods.masterweapons.init.*;
 import net.minecraft.Util;
 import net.minecraft.util.datafix.fixes.BlockRenameFix;
 import net.minecraft.util.datafix.fixes.ItemRenameFix;

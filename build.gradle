@@ -1,286 +1,58 @@
-// Buildscript settings
-buildscript {
-    // Global variables.
-    ext {
-        // Mod related properties
-        mod_version = "3.0.0"
-        mod_id = "masterweapons"
-        mixin_name = "ultreon.master-weapons"
+plugins {
+    id "architectury-plugin" version "3.4-SNAPSHOT"
+    id "dev.architectury.loom" version "0.12.0-SNAPSHOT" apply false
+}
 
-        // Minecraft / forge related stuff
-        mc_version = "1.18.2"
-        forge_version = "40.1.73"
-        mixin_ap_version = "0.8.5"
+architectury {
+    minecraft = rootProject.minecraft_version
+}
 
-        // Minecraft mappings
-        mappings_channel = "parchment"
-        mappings_version = "2022.03.13-1.18.2"
+subprojects {
+    apply plugin: "dev.architectury.loom"
 
-        // Plugin versions
-        forge_gradle_version = "5.1.+"
-        mixin_gradle_version = "0.7-SNAPSHOT"
-        librarian_version = "1.+"
-
-        // Java settings
-        java_version = 17
-
-        // Debug
-        log_details = false
+    loom {
+        silentMojangMappingsLicense()
     }
 
-    // Plugin repositories.
-    repositories {
-        // These repositories are only for Gradle plugins, put any other repositories in the repository block further below
-        maven { url = 'https://maven.minecraftforge.net' }
-        maven { url = 'https://repo.spongepowered.org/repository/maven-public/' }
-        maven { url = 'https://maven.parchmentmc.org' }
-        mavenCentral()
-    }
-
-    // Plugin dependencies.
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: forge_gradle_version, changing: true
-        classpath group: 'org.parchmentmc', name: 'librarian', version: librarian_version, changing: true
-        classpath "org.spongepowered:mixingradle:$mixin_gradle_version"
+        minecraft "com.mojang:minecraft:${rootProject.minecraft_version}"
+        // The following line declares the mojmap mappings, you may use other mappings as well
+        mappings loom.officialMojangMappings()
+        // The following line declares the yarn mappings you may select this one as well.
+        // mappings "net.fabricmc:yarn:1.18.2+build.4:v2"
     }
 }
 
-// Plugins
-apply plugin: 'net.minecraftforge.gradle' // Don't remove or change this line
-apply plugin: 'org.parchmentmc.librarian.forgegradle'
-apply plugin: 'org.spongepowered.mixin' // Don't remove or change this line
-apply plugin: 'eclipse'
-apply plugin: 'maven-publish'
+allprojects {
+    apply plugin: "java"
+    apply plugin: "architectury-plugin"
+    apply plugin: "maven-publish"
 
-// Project group and version.
-group 'com.ultreon.mods'
-version mod_version
+    archivesBaseName = rootProject.archives_base_name
+    version = rootProject.mod_version
+    group = rootProject.maven_group
 
-// Java settings
-java {
-    archivesBaseName = 'master-weapons'
-    toolchain.languageVersion = JavaLanguageVersion.of(java_version)
-}
-
-// Source sets configuration.
-sourceSets {
-    // Note that just declaring this source set creates two configurations.
-    api {
-        java {
-
-        }
-    }
-    main {
-        java {
-            compileClasspath += api.output
-            runtimeClasspath += api.output
-        }
-    }
-}
-
-// Minecraft settings (required)
-minecraft {
-    // The mappings can be changed at any time and must be in the following format.
-    // Channel:   Version:
-    // snapshot   YYYYMMDD   Snapshot are built nightly.
-    // stable     #          Stables are built at the discretion of the MCP team.
-    // official   MCVersion  Official field/method names from Mojang mapping files
-    //
-    // You must be aware of the Mojang license when using the 'official' mappings.
-    // See more information here: https://github.com/MinecraftForge/MCPConfig/blob/master/Mojang.md
-    //
-    // Use non-default mappings at your own risk. They may not always work.
-    // Simply re-run your setup task after changing the mappings to update your workspace.
-    mappings channel: project.property("forge.mappings.channel"), version: project.property("forge.mappings.version")
-
-    accessTransformer = file('src/main/resources/META-INF/accesstransformer.cfg')
-
-    // Default run configurations.
-    // These can be tweaked, removed, or duplicated as needed.
-    runs {
-        client {
-            workingDirectory project.file('run')
-
-            // Recommended logging data for a user-dev environment
-            // The markers can be added/removed as needed separated by commas.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
-            // Recommended logging level for the console
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                masterweapons {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        server {
-            workingDirectory project.file('run')
-
-            // Recommended logging data for a user-dev environment
-            // The markers can be added/removed as needed separated by commas.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
-            // Recommended logging level for the console
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                masterweapons {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        data {
-            workingDirectory project.file('run')
-
-            // Recommended logging data for a user-dev environment
-            // The markers can be added/removed as needed separated by commas.
-            // "SCAN": For mods scan.
-            // "REGISTRIES": For firing of registry events.
-            // "REGISTRYDUMP": For getting the contents of all registries.
-            property 'forge.logging.markers', 'SCAN,REGISTRIES,REGISTRYDUMP'
-
-            // Recommended logging level for the console
-            // You can set various levels here.
-            // Please read: https://stackoverflow.com/questions/2031163/when-to-use-the-different-log-levels
-            property 'forge.logging.console.level', 'debug'
-
-            args '--mod', mod_id, '--all', '--output', file('src/generated/resources/'), '--existing', file('src/main/resources/')
-
-            mods {
-                masterweapons {
-                    source sourceSets.main
-                }
-            }
-        }
-    }
-}
-
-// Mixin stuff
-mixin {
-    add sourceSets.main, "${mixin_name}.refmap.json"
-
-    config "${mixin_name}.mixins.json"
-}
-
-// Include resources generated by data generators.
-sourceSets.main.resources { srcDir 'src/generated/resources' }
-
-// Repositories for mod dependencies / libraries.
-repositories {
-    // Put repositories for dependencies here
-    // ForgeGradle automatically adds the Forge maven and Maven Central for you
-
-    // If you have mod jar dependencies in ./libs, you can declare them as a repository like so:
-    flatDir {
-        dir 'libs'
-    }
-
-    maven {
-        url "https://maven.tterrag.com/"
-    }
-
-    maven { // JEI
-        name "Progwml6 Maven"
-        url "https://dvs1.progwml6.com/files/maven/"
-    }
-    maven { // Fallback for JEI
-        name "ModMaven"
-        url "https://modmaven.k-4u.nl"
-    }
-
-    mavenLocal()
-}
-
-// Dependencies for the mod.
-dependencies {
-    // Specify the version of Minecraft to use. If this is any group other than 'net.minecraft' it is assumed
-    // that the dep is a ForgeGradle 'patcher' dependency, and its patches will be applied.
-    // The user-dev artifact is a special name and will get all sorts of transformations applied to it.
-    minecraft "net.minecraftforge:forge:$mc_version-$forge_version"
-
-    // For more info...
-    // http://www.gradle.org/docs/current/userguide/artifact_dependencies_tutorial.html
-    // http://www.gradle.org/docs/current/userguide/dependency_management.html
-
-    annotationProcessor "org.spongepowered:mixin:$mixin_ap_version:processor"
-}
-
-// Java compiler settings.
-java {
-    withJavadocJar()
-    withSourcesJar()
-}
-
-// Jar settings.
-jar {
-    // Setup manifest attributes.
-    manifest {
-        attributes([
-                "Specification-Title"     : "Machinizing",
-                "Specification-Vendor"    : "Ultreon Team",
-                "Specification-Version"   : "1", // We are version 1 of ourselves
-                "Implementation-Title"    : project.name,
-                "Implementation-Version"  : project.jar.archiveVersion,
-                "Implementation-Vendor"   : "Ultreon Team",
-                "Implementation-Timestamp": new Date().format("yyyy-MM-dd'T'HH:mm:ssZ"),
-                "Mixin-Configs"           : "ultreon.master-weapons.mixins.json"
-        ])
-    }
-}
-
-// Jar needs to be re-obfuscated.
-jar.finalizedBy('reobfJar')
-
-// Maven publishing.
-publishing {
-    // Setup the repository to publish to.
     repositories {
-        maven {
-            name = "Main"
-            url = uri("${projectDir}/.maven_repo")
-        }
-        mavenLocal()
+        // Add repositories to retrieve artifacts from in here.
+        // You should only use this when depending on other mods because
+        // Loom adds the essential maven repositories to download Minecraft and libraries from automatically.
+        // See https://docs.gradle.org/current/userguide/declaring_repositories.html
+        // for more information about repositories.
     }
 
-    // Setup the artifact to publish.
-    publications {
-        //noinspection GroovyAssignabilityCheck
-        main(MavenPublication) {
-            from components.java
-            pom.withXml {
-                //noinspection GroovyImplicitNullArgumentCall
-                def pomNode = asNode()
-                pomNode.dependencies.'*'.findAll() {
-                    it.groupId.text() == 'net.minecraftforge' && it.artifactId.text() == "forge"
-                }.each() {
-                    it.parent().remove(it)
-                }
-            }
-        }
+    tasks.withType(JavaCompile) {
+        options.encoding = "UTF-8"
+        options.release = 17
+    }
+
+    java {
+        withSourcesJar()
     }
 }
 
-// Remove gradle's stupid module metadata that breaks mods.
-tasks.withType(GenerateModuleMetadata) {
-    enabled = false
-}
-
-// Log system info.
-if (log_details) {
-    println('Java: ' + System.getProperty('java.version') + '\n JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ')\n Arch: ' + System.getProperty('os.arch'))
-    println("OS: " + System.getProperty("os.name") + "\n OS Version: " + System.getProperty("os.version"))
-    println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
-}
+//// Log system info.
+//if (log_details) {
+//    println('Java: ' + System.getProperty('java.version') + '\n JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ')\n Arch: ' + System.getProperty('os.arch'))
+//    println("OS: " + System.getProperty("os.name") + "\n OS Version: " + System.getProperty("os.version"))
+//    println('Java: ' + System.getProperty('java.version') + ' JVM: ' + System.getProperty('java.vm.version') + '(' + System.getProperty('java.vendor') + ') Arch: ' + System.getProperty('os.arch'))
+//}

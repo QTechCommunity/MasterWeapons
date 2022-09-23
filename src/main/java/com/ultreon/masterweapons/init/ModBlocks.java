@@ -1,6 +1,6 @@
-package com.ultreon.masterweapons.init;
+package com.ultreon.mods.masterweapons.init;
 
-import com.ultreon.masterweapons.MasterWeapons;
+import com.ultreon.mods.masterweapons.MasterWeapons;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;

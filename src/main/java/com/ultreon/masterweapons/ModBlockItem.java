@@ -1,4 +1,4 @@
-package com.ultreon.masterweapons;
+package com.ultreon.mods.masterweapons;
 
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;

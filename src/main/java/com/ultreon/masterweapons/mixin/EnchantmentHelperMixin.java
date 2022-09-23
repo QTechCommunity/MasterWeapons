@@ -1,8 +1,8 @@
-package com.ultreon.masterweapons.mixin;
+package com.ultreon.mods.masterweapons.mixin;
 
-import com.ultreon.masterweapons.common.UltranArmorBase;
-import com.ultreon.masterweapons.common.UltranToolBase;
-import com.ultreon.masterweapons.common.UltranWeaponBase;
+import com.ultreon.mods.masterweapons.common.UltranArmorBase;
+import com.ultreon.mods.masterweapons.common.UltranToolBase;
+import com.ultreon.mods.masterweapons.common.UltranWeaponBase;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
