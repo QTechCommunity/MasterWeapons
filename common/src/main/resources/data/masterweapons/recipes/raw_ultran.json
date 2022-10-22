@@ -1,0 +1,13 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "group": "raw_ultran",
+  "ingredients": [
+    {
+      "item": "masterweapons:raw_ultran_block"
+    }
+  ],
+  "result": {
+    "item": "masterweapons:raw_ultran",
+    "count": 9
+  }
+}

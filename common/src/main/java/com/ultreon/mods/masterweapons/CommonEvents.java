@@ -1,30 +1,33 @@
 package com.ultreon.mods.masterweapons;
 
 import com.ultreon.mods.masterweapons.common.UltranArmorBase;
+import dev.architectury.event.EventResult;
+import dev.architectury.event.events.common.EntityEvent;
+import dev.architectury.event.events.common.TickEvent;
+import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.ItemStack;
-import net.minecraftforge.event.TickEvent;
-import net.minecraftforge.event.entity.living.LivingDamageEvent;
-import net.minecraftforge.eventbus.api.SubscribeEvent;
-import net.minecraftforge.fml.common.Mod;
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
 
 import java.util.HashSet;
 import java.util.Set;
 
-@Mod.EventBusSubscriber(modid = MasterWeapons.MOD_ID, bus = Mod.EventBusSubscriber.Bus.FORGE)
 public class CommonEvents {
     private static final Marker MARKER = MarkerFactory.getMarker("CommonEvents");
     private static Set<Player> flyables = new HashSet<>();
 
-    @SubscribeEvent
-    public static void onLivingDamage(LivingDamageEvent event) {
-        if (hasUltranArmor(event.getEntityLiving())) {
-            event.setAmount(0);
-            event.setCanceled(true);
+    public CommonEvents() {
+        TickEvent.PLAYER_POST.register(this::onPlayerTick);
+        EntityEvent.LIVING_HURT.register(this::onLivingDamage);
+    }
+
+    public EventResult onLivingDamage(LivingEntity entity, DamageSource source, float amount) {
+        if (hasUltranArmor(entity)) {
+            return EventResult.interruptTrue();
         }
+        return EventResult.pass();
     }
 
     private static boolean hasUltranArmor(LivingEntity entity) {
@@ -36,26 +39,25 @@ public class CommonEvents {
         return hasUltranArmor;
     }
 
-    @SubscribeEvent
-    public static void onPlayerTick(TickEvent.PlayerTickEvent event) {
-        if (hasUltranArmor(event.player)) {
-            event.player.setAbsorptionAmount(80f);
-            boolean mayfly = event.player.getAbilities().mayfly;
+    public void onPlayerTick(Player player) {
+        if (hasUltranArmor(player)) {
+            player.setAbsorptionAmount(80f);
+            boolean mayfly = player.getAbilities().mayfly;
             if (!mayfly) {
-                event.player.getAbilities().mayfly = true;
-                event.player.onUpdateAbilities();
+                player.getAbilities().mayfly = true;
+                player.onUpdateAbilities();
             }
-            flyables.add(event.player);
+            flyables.add(player);
         } else {
-            if (!event.player.isCreative() && !event.player.isSpectator()) {
-                boolean mayfly = event.player.getAbilities().mayfly;
+            if (!player.isCreative() && !player.isSpectator()) {
+                boolean mayfly = player.getAbilities().mayfly;
                 if (mayfly) {
-                    event.player.getAbilities().mayfly = false;
-                    event.player.getAbilities().flying = false;
-                    event.player.onUpdateAbilities();
+                    player.getAbilities().mayfly = false;
+                    player.getAbilities().flying = false;
+                    player.onUpdateAbilities();
                 }
             }
-            flyables.remove(event.player);
+            flyables.remove(player);
         }
     }
 }

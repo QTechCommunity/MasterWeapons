@@ -36,29 +36,6 @@ public class UltranHoe extends HoeItem implements UltranToolBase {
     }
 
     /**
-     * Master tools and weapons are unbreakable.
-     *
-     * @return false.
-     */
-    @Override
-    public boolean isDamageable(ItemStack stack) {
-        return false;
-    }
-
-    /**
-     * Master tools and weapons can't be damaged.
-     * And will never be damaged.
-     *
-     * @param stack the stack
-     * @return non-damaged.
-     * @since 3.0.0
-     */
-    @Override
-    public boolean isDamaged(ItemStack stack) {
-        return super.isDamaged(stack);
-    }
-
-    /**
      * Get the rarity.
      *
      * @param stack the item stack to get the rarity for.
@@ -66,8 +43,8 @@ public class UltranHoe extends HoeItem implements UltranToolBase {
      */
     @NotNull
     @Override
-    public Rarity getRarity(ItemStack stack) {
-        return ModRarities.LEGENDARY;
+    public Rarity getRarity(@NotNull ItemStack stack) {
+        return ModRarities.getLegendary();
     }
 
     /**
@@ -78,7 +55,7 @@ public class UltranHoe extends HoeItem implements UltranToolBase {
      * @return the speed to destroy a block.
      */
     @Override
-    public float getDestroySpeed(ItemStack stack, BlockState state) {
+    public float getDestroySpeed(@NotNull ItemStack stack, @NotNull BlockState state) {
         return Float.POSITIVE_INFINITY;
     }
 
@@ -90,7 +67,7 @@ public class UltranHoe extends HoeItem implements UltranToolBase {
      */
     @NotNull
     @Override
-    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(EquipmentSlot equipmentSlot) {
+    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot equipmentSlot) {
         Multimap<Attribute, AttributeModifier> multimap = HashMultimap.create();
         if (equipmentSlot == EquipmentSlot.MAINHAND) {
             multimap.put(Attributes.ATTACK_DAMAGE, new AttributeModifier(BASE_ATTACK_DAMAGE_UUID, "Weapon modifier", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
@@ -101,7 +78,7 @@ public class UltranHoe extends HoeItem implements UltranToolBase {
     }
 
     @Override
-    public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
+    public boolean canAttackBlock(BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer) {
         return !pState.requiresCorrectToolForDrops();
     }
 }

@@ -19,6 +19,12 @@ configurations {
     developmentFabric.extendsFrom common
 }
 
+repositories {
+    flatDir {
+        dir "$projectDir/libs"
+    }
+}
+
 dependencies {
     modImplementation "net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}"
     modApi "net.fabricmc.fabric-api:fabric-api:${rootProject.fabric_api_version}"
@@ -27,6 +33,8 @@ dependencies {
 
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
+
+    modImplementation include("com.jab125.limeappleboat:thonkutil-enum-api:v1-0.0.0+86e9c84857")
 }
 
 processResources {

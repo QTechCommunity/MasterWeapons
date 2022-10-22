@@ -29,11 +29,11 @@ public class ModItems {
     public static final RegistrySupplier<ArmorItem> ULTRAN_CHESTPLATE = register("ultran_chestplate", () -> new UltranArmor(EquipmentSlot.CHEST));
     public static final RegistrySupplier<ArmorItem> ULTRAN_LEGGINGS = register("ultran_leggings", () -> new UltranArmor(EquipmentSlot.LEGS));
     public static final RegistrySupplier<ArmorItem> ULTRAN_BOOTS = register("ultran_boots", () -> new UltranArmor(EquipmentSlot.FEET));
-    public static final RegistrySupplier<ArrowItem> ULTRAN_ARROW = register("ultran_arrow", () -> new UltranArrowItem(new Item.Properties().tab(MasterWeapons.TAB)));
+    public static final RegistrySupplier<ArrowItem> ULTRAN_ARROW = register("ultran_arrow", () -> new UltranArrowItem(new Item.Properties().tab(MasterWeapons.getTab())));
 
-    public static final RegistrySupplier<Item> RAW_ULTRAN = register("raw_ultran", () -> new Item(new Item.Properties().tab(MasterWeapons.TAB)));
-    public static final RegistrySupplier<Item> ULTRAN_INGOT = register("ultran_ingot", () -> new Item(new Item.Properties().tab(MasterWeapons.TAB)));
-    public static final RegistrySupplier<Item> ULTRAN_NUGGET = register("ultran_nugget", () -> new Item(new Item.Properties().tab(MasterWeapons.TAB)));
+    public static final RegistrySupplier<Item> RAW_ULTRAN = register("raw_ultran", () -> new Item(new Item.Properties().tab(MasterWeapons.getTab())));
+    public static final RegistrySupplier<Item> ULTRAN_INGOT = register("ultran_ingot", () -> new Item(new Item.Properties().tab(MasterWeapons.getTab())));
+    public static final RegistrySupplier<Item> ULTRAN_NUGGET = register("ultran_nugget", () -> new Item(new Item.Properties().tab(MasterWeapons.getTab())));
 
     static <T extends Item> RegistrySupplier<T> register(String name, Supplier<T> supplier) {
         return REGISTER.register(name, supplier);

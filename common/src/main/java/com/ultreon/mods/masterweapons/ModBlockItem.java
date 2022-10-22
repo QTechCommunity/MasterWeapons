@@ -26,7 +26,7 @@ public class ModBlockItem extends BlockItem {
 
     @NotNull
     public Block getBlock() {
-        return this.getBlockRaw() == null ? Blocks.AIR : this.getBlockRaw().delegate.get();
+        return this.getBlockRaw() == null ? Blocks.AIR : this.getBlockRaw();
     }
 
     private Block getBlockRaw() {

@@ -4,6 +4,7 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.ultreon.mods.masterweapons.common.UltranToolBase;
 import com.ultreon.mods.masterweapons.init.ModRarities;
+import dev.architectury.extensions.ItemExtension;
 import net.minecraft.core.BlockPos;
 import net.minecraft.tags.BlockTags;
 import net.minecraft.world.entity.EquipmentSlot;
@@ -29,7 +30,7 @@ import static com.ultreon.mods.masterweapons.Constants.TOOL_PROPERTY;
  * @see UltranToolTier
  * @since 2.0.0
  */
-public class UltranShovel extends ShovelItem implements UltranToolBase {
+public class UltranShovel extends ShovelItem implements UltranToolBase, ItemExtension {
     /**
      * Constructor
      *
@@ -38,32 +39,6 @@ public class UltranShovel extends ShovelItem implements UltranToolBase {
      */
     public UltranShovel() {
         super(UltranToolTier.getInstance(), Float.POSITIVE_INFINITY, Float.POSITIVE_INFINITY, TOOL_PROPERTY);
-    }
-
-    /**
-     * Master tools and weapons are unbreakable.
-     *
-     * @return false.
-     * @author Qboi123
-     * @since 2.0.0
-     */
-    @Override
-    public boolean isDamageable(ItemStack stack) {
-        return false;
-    }
-
-    /**
-     * Master tools and weapons can't be damaged.
-     * And will never be damaged.
-     *
-     * @param stack the stack
-     * @return non-damaged.
-     * @author Qboi123
-     * @since 3.0.0
-     */
-    @Override
-    public boolean isDamaged(ItemStack stack) {
-        return false;
     }
 
     /**
@@ -77,7 +52,7 @@ public class UltranShovel extends ShovelItem implements UltranToolBase {
     @NotNull
     @Override
     public Rarity getRarity(@NotNull ItemStack stack) {
-        return ModRarities.LEGENDARY;
+        return ModRarities.getLegendary();
     }
 
     /**
@@ -115,7 +90,7 @@ public class UltranShovel extends ShovelItem implements UltranToolBase {
     }
 
     @Override
-    public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
+    public boolean canAttackBlock(BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer) {
         return pState.is(BlockTags.MINEABLE_WITH_SHOVEL);
     }
 }

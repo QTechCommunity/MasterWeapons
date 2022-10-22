@@ -1,27 +1,27 @@
 {
   "schemaVersion": 1,
-  "id": "examplemod",
+  "id": "masterweapons",
   "version": "${version}",
-  "name": "Example Mod",
-  "description": "This is an example description! Tell everyone what your mod is about!",
+  "name": "Master Weapons",
+  "description": "\n§l§nMaster Weapons§r\n §oA mod that adds overpowered items.§r\n\n§lFeatures§r\n * Master sword, axe, pickaxe, shovel and hoe\n * Master ingot and nugget.\n * Master block and ore.\n * Recipes for tools, sword, ingot, nugget and block.\n * Infinite damage.\n * Ore generation (has 1 ore in 64 chunks).\n\n§lSource code§r\n The source code is on github: https://github.com/Qboi123/master-weapons\n",
   "authors": [
-    "Me!"
+    "Qboi123"
   ],
   "contact": {
-    "homepage": "https://fabricmc.net/",
-    "sources": "https://github.com/FabricMC/fabric-example-mod"
+    "homepage": "https://ultreon.github.io/web/",
+    "sources": "https://github.com/Ultreon/master-weapons"
   },
-  "license": "Insert License Here",
-  "icon": "assets/examplemod/icon.png",
+  "license": "GNU LGPLv3",
+  "icon": "assets/masterweapons/icon.png",
   "environment": "*",
   "entrypoints": {
     "main": [
-      "com.ultreon.mods.masterweapons.fabric.ExampleModFabric"
+      "com.ultreon.mods.masterweapons.fabric.MasterWeaponsFabric"
     ]
   },
   "mixins": [
-    "examplemod.mixins.json",
-    "examplemod-common.mixins.json"
+    "masterweapons.mixins.json",
+    "masterweapons-common.mixins.json"
   ],
   "depends": {
     "fabric": "*",

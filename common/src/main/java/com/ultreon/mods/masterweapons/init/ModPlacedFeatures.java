@@ -20,6 +20,7 @@ import java.util.List;
  * @see PlacedFeature
  * @since 3.0.0
  */
+@Deprecated
 public class ModPlacedFeatures {
     private static final DeferredRegister<PlacedFeature> REGISTER = DeferredRegister.create(MasterWeapons.MOD_ID, Registry.PLACED_FEATURE_REGISTRY);
 

@@ -36,29 +36,6 @@ public class UltranSword extends SwordItem implements UltranMeleeWeaponBase {
     }
 
     /**
-     * Master tools and weapons are unbreakable.
-     *
-     * @return false.
-     */
-    @Override
-    public boolean isDamageable(ItemStack stack) {
-        return false;
-    }
-
-    /**
-     * Master tools and weapons can't be damaged.
-     * And will never be damaged.
-     *
-     * @param stack the stack
-     * @return non-damaged.
-     * @since 3.0.0
-     */
-    @Override
-    public boolean isDamaged(ItemStack stack) {
-        return false;
-    }
-
-    /**
      * Get the rarity.
      *
      * @param stack the item stack to get the rarity for.
@@ -67,7 +44,7 @@ public class UltranSword extends SwordItem implements UltranMeleeWeaponBase {
     @NotNull
     @Override
     public Rarity getRarity(@NotNull ItemStack stack) {
-        return ModRarities.LEGENDARY;
+        return ModRarities.getLegendary();
     }
 
     /**
@@ -111,7 +88,7 @@ public class UltranSword extends SwordItem implements UltranMeleeWeaponBase {
     }
 
     @Override
-    public boolean canAttackBlock(BlockState pState, Level pLevel, BlockPos pPos, Player pPlayer) {
+    public boolean canAttackBlock(@NotNull BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer) {
         return false;
     }
 }

@@ -52,7 +52,7 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * @since 2.0.0
      */
     @Override
-    public int getDurabilityForSlot(EquipmentSlot slotIn) {
+    public int getDurabilityForSlot(@NotNull EquipmentSlot slotIn) {
         return (int) Float.POSITIVE_INFINITY;
     }
 
@@ -65,7 +65,7 @@ public class UltranArmorMaterial implements ArmorMaterial {
      * @since 2.0.0
      */
     @Override
-    public int getDefenseForSlot(EquipmentSlot slotIn) {
+    public int getDefenseForSlot(@NotNull EquipmentSlot slotIn) {
         return (int) Float.POSITIVE_INFINITY;
     }
 

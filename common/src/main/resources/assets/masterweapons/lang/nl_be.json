@@ -1,0 +1,20 @@
+{
+  "itemGroup.masterweapons": "OP Wapens",
+  "item.masterweapons.ultran_sword": "Ultran zwaard",
+  "item.masterweapons.ultran_axe": "Ultran bijl",
+  "item.masterweapons.ultran_pickaxe": "Ultran houweel",
+  "item.masterweapons.ultran_shovel": "Ultran schep",
+  "item.masterweapons.ultran_hoe": "Ultran schoffel",
+  "item.masterweapons.ultran_helmet": "Ultran helm",
+  "item.masterweapons.ultran_chestplate": "Ultran kuras",
+  "item.masterweapons.ultran_leggings": "Ultran beenstukken",
+  "item.masterweapons.ultran_boots": "Ultran laarzen",
+  "item.masterweapons.ultran_ingot": "Ultran metalen staaf",
+  "item.masterweapons.ultran_nugget": "Ultran klompje",
+  "item.masterweapons.raw_ultran": "Ruw Ultran",
+  "block.masterweapons.ultran_block": "Ultran blok",
+  "block.masterweapons.raw_ultran_block": "Ruw Ultran blok",
+  "block.masterweapons.ultran_ore": "Ultran erts",
+  "block.masterweapons.deepslate_ultran_ore": "Wervelsteen Ultran erts",
+  "attribute.name.generic.attackKnockback": "Aanval terugstoot"
+}

@@ -1,8 +1,5 @@
 package com.ultreon.mods.masterweapons.client;
 
-import com.ultreon.mods.masterweapons.MasterWeapons;
-import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.fml.common.Mod.EventBusSubscriber;
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
 
@@ -12,7 +9,17 @@ import org.slf4j.MarkerFactory;
  * @author Qboi123
  * @since 3.0.0
  */
-@EventBusSubscriber(modid = MasterWeapons.MOD_ID, bus = EventBusSubscriber.Bus.FORGE, value = Dist.CLIENT)
+
+@SuppressWarnings("InstantiationOfUtilityClass")
 public class ClientEvents {
     private static final Marker MARKER = MarkerFactory.getMarker("ClientEvents");
+    private static final ClientEvents INSTANCE = new ClientEvents();
+
+    private ClientEvents() {
+
+    }
+
+    public static void nopInit() {
+
+    }
 }

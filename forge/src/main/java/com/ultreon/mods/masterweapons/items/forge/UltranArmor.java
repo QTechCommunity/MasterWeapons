@@ -1,6 +1,6 @@
 package com.ultreon.mods.masterweapons.items.forge;
 
-import com.ultreon.mods.masterweapons.init.forge.ModRarities;
+import com.ultreon.mods.masterweapons.init.forge.ModRaritiesImpl;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Rarity;
 import org.jetbrains.annotations.NotNull;
@@ -14,7 +14,7 @@ public class UltranArmor {
      */
     @NotNull
     public Rarity getRarity(ItemStack stack) {
-        return ModRarities.LEGENDARY;
+        return ModRaritiesImpl.LEGENDARY;
     }
 
 }

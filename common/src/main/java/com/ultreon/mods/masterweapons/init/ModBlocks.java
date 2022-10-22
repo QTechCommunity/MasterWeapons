@@ -30,7 +30,7 @@ public class ModBlocks {
 
     private static <T extends Block> RegistrySupplier<T> register(String name, Supplier<T> supplier) {
         RegistrySupplier<T> registryObject = REGISTER.register(name, supplier);
-        ModItems.register(name, () -> new BlockItem(registryObject.get(), new Item.Properties().tab(MasterWeapons.TAB)));
+        ModItems.register(name, () -> new BlockItem(registryObject.get(), new Item.Properties().tab(MasterWeapons.getTab())));
         return registryObject;
     }
 

@@ -19,6 +19,7 @@ import java.util.List;
  * @see ConfiguredFeature
  * @since 3.0.0
  */
+@Deprecated
 public class ModConfiguredFeatures {
     private static final DeferredRegister<ConfiguredFeature<?, ?>> REGISTER = DeferredRegister.create(MasterWeapons.MOD_ID, Registry.CONFIGURED_FEATURE_REGISTRY);
 

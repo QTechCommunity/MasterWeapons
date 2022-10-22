@@ -40,31 +40,6 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
     }
 
     /**
-     * Master armor pieces are unbreakable.
-     *
-     * @param stack the item stack to check.
-     * @return false.
-     * @since 2.0.0
-     */
-    @Override
-    public boolean isDamageable(ItemStack stack) {
-        return false;
-    }
-
-    /**
-     * Master tools and weapons can't be damaged.
-     * And will never be damaged.
-     *
-     * @param stack the stack
-     * @return non-damaged.
-     * @since 3.0.0
-     */
-    @Override
-    public boolean isDamaged(ItemStack stack) {
-        return false;
-    }
-
-    /**
      * Get the rarity.
      *
      * @param stack the item stack to get the rarity for.
@@ -85,7 +60,7 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
      * @return the speed to destroy a block.
      */
     @Override
-    public float getDestroySpeed(ItemStack stack, BlockState state) {
+    public float getDestroySpeed(@NotNull ItemStack stack, @NotNull BlockState state) {
         return Float.POSITIVE_INFINITY;
     }
 
@@ -97,7 +72,7 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
      */
     @NotNull
     @Override
-    public Multimap<Attribute, AttributeModifier> getAttributeModifiers(EquipmentSlot equipmentSlot, ItemStack stack) {
+    public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot equipmentSlot) {
         Multimap<Attribute, AttributeModifier> multimap = HashMultimap.create();
         if (equipmentSlot == this.slot) {
             multimap.put(Attributes.ARMOR, new AttributeModifier(BASE_ARMOR_UUIDS[equipmentSlot.getIndex()], "Armor modifier", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));

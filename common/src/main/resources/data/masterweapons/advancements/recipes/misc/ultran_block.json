@@ -1,0 +1,34 @@
+{
+  "parent": "minecraft:recipes/root",
+  "rewards": {
+    "recipes": [
+      "masterweapons:ultran_block"
+    ]
+  },
+  "criteria": {
+    "has_ultran_ingot": {
+      "trigger": "minecraft:inventory_changed",
+      "conditions": {
+        "items": [
+          {
+            "items": [
+              "masterweapons:ultran_ingot"
+            ]
+          }
+        ]
+      }
+    },
+    "has_the_recipe": {
+      "trigger": "minecraft:recipe_unlocked",
+      "conditions": {
+        "recipe": "masterweapons:ultran_block"
+      }
+    }
+  },
+  "requirements": [
+    [
+      "has_ultran_ingot",
+      "has_the_recipe"
+    ]
+  ]
+}
