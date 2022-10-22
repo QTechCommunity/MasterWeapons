@@ -1,10 +1,10 @@
 package com.ultreon.mods.masterweapons.init;
 
 import com.ultreon.mods.masterweapons.MasterWeapons;
+import com.ultreon.mods.masterweapons.ModBlockItem;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.Registry;
-import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Material;
@@ -30,7 +30,7 @@ public class ModBlocks {
 
     private static <T extends Block> RegistrySupplier<T> register(String name, Supplier<T> supplier) {
         RegistrySupplier<T> registryObject = REGISTER.register(name, supplier);
-        ModItems.register(name, () -> new BlockItem(registryObject.get(), new Item.Properties().tab(MasterWeapons.getTab())));
+        ModItems.register(name, () -> new ModBlockItem(registryObject, new Item.Properties().tab(MasterWeapons.getTab())));
         return registryObject;
     }
 

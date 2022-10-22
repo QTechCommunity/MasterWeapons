@@ -1,25 +1,23 @@
 package com.ultreon.mods.masterweapons;
 
+import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
 import org.jetbrains.annotations.NotNull;
-
-import java.util.function.Supplier;
 
 /**
  * A block item that requires a supplier as parameter.
  *
  * @author Qboi123, Forge Team
  */
-@Deprecated
 @SuppressWarnings("unused")
 public class ModBlockItem extends BlockItem {
     @Deprecated
-    private final Supplier<Block> block;
+    private final RegistrySupplier<? extends Block> block;
 
     @SuppressWarnings("ConstantConditions")
-    public ModBlockItem(Supplier<Block> blockIn, Properties builder) {
+    public ModBlockItem(RegistrySupplier<? extends Block> blockIn, Properties builder) {
         super(null, builder);
         this.block = blockIn;
     }
@@ -30,6 +28,6 @@ public class ModBlockItem extends BlockItem {
     }
 
     private Block getBlockRaw() {
-        return this.block.get();
+        return this.block.getOrNull();
     }
 }

@@ -2,7 +2,9 @@ package com.ultreon.mods.masterweapons;
 
 import com.ultreon.mods.masterweapons.client.ClientEvents;
 import com.ultreon.mods.masterweapons.client.ClientInitialization;
-import com.ultreon.mods.masterweapons.init.*;
+import com.ultreon.mods.masterweapons.init.ModBlocks;
+import com.ultreon.mods.masterweapons.init.ModEntities;
+import com.ultreon.mods.masterweapons.init.ModItems;
 import com.ultreon.mods.masterweapons.world.gen.WorldGeneration;
 import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.registry.CreativeTabRegistry;
@@ -58,8 +60,6 @@ public class MasterWeapons {
         // Registering items and blocks to mod eventbus.
         ModItems.register();
         ModBlocks.register();
-        ModPlacedFeatures.register();
-        ModConfiguredFeatures.register();
         ModEntities.register();
 
         // Initialized.

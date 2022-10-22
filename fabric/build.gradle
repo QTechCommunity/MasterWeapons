@@ -34,7 +34,7 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
 
-    modImplementation include("com.jab125.limeappleboat:thonkutil-enum-api:v1-0.0.0+86e9c84857")
+    modImplementation include("com.jab125.limeappleboat:thonkutil-enum-api-v1:1.0.0+494ff2b990")
 }
 
 processResources {
