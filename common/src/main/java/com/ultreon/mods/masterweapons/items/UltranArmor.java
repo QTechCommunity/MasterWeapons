@@ -3,6 +3,7 @@ package com.ultreon.mods.masterweapons.items;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.ultreon.mods.masterweapons.common.UltranArmorBase;
+import com.ultreon.mods.masterweapons.init.ModRarities;
 import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.ai.attributes.Attribute;
@@ -49,7 +50,7 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
     @Override
     @ExpectPlatform
     public Rarity getRarity(@NotNull ItemStack stack) {
-        throw new Error("Didn't implement");
+        return ModRarities.getLegendary();
     }
 
     /**
