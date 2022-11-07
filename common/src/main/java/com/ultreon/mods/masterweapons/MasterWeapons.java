@@ -33,7 +33,7 @@ public class MasterWeapons {
     private static final Marker CLIENT_MARKER = MarkerFactory.getMarker("Client");
     private static final Marker SERVER_MARKER = MarkerFactory.getMarker("Server");
     private static final MasterWeapons INSTANCE = new MasterWeapons();
-    private static CreativeModeTab tab;
+    private static final CreativeModeTab tab = CreativeTabRegistry.create(res(MOD_ID), () -> new ItemStack(ModItems.ULTRAN_SWORD.get()));
     private CommonEvents commonEvents;
 
     public static CreativeModeTab getTab() {
@@ -64,8 +64,6 @@ public class MasterWeapons {
 
         // Initialized.
         LOGGER.info(INIT_MARKER, "Initialized Master Weapons Mod.");
-
-        tab = CreativeTabRegistry.create(res(MOD_ID), () -> new ItemStack(ModItems.ULTRAN_SWORD.get()));
 
         commonEvents = new CommonEvents();
         EnvExecutor.runInEnv(Env.CLIENT, () -> () -> {

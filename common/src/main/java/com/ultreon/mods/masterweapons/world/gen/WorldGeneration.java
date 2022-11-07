@@ -36,7 +36,7 @@ public class WorldGeneration {
                 OreConfiguration.target(OreFeatures.DEEPSLATE_ORE_REPLACEABLES, ModBlocks.DEEPSLATE_ULTRAN_ORE.get().defaultBlockState()))));
         Holder<PlacedFeature> placedUltranOre = PlacementUtils.register(MasterWeapons.MOD_ID + ":ultran_ore", configuredUltranOre,
                 List.of(CountPlacement.of(1),
-                        HeightRangePlacement.uniform(VerticalAnchor.TOP, VerticalAnchor.BOTTOM),
+                        HeightRangePlacement.uniform(VerticalAnchor.BOTTOM, VerticalAnchor.TOP),
                         RarityFilter.onAverageOnceEvery(64),
                         BiomeFilter.biome()));
 

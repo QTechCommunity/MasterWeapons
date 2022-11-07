@@ -117,7 +117,7 @@ public class UltranArmorMaterial implements ArmorMaterial {
     @NotNull
     @Override
     public String getName() {
-        return MasterWeapons.MOD_ID + ":ultran";
+        return MasterWeapons.MOD_ID + "_ultran";
     }
 
     /**
