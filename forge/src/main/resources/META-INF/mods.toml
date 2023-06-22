@@ -71,6 +71,6 @@ side = "BOTH"
 [[dependencies.masterweapons]]
 modId = "architectury"
 mandatory = true
-versionRange = "[7.1,8)"
+versionRange = "[5.1,7)"
 ordering = "NONE"
 side = "BOTH"
