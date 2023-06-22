@@ -5,6 +5,7 @@ import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.level.levelgen.VerticalAnchor;
 import net.minecraft.world.level.levelgen.placement.CountPlacement;
 import net.minecraft.world.level.levelgen.placement.HeightRangePlacement;
@@ -18,19 +19,18 @@ import java.util.List;
  *
  * @author Qboi123
  * @see PlacedFeature
- * @since 3.0.0
+ * @since 3.2.0
  */
-@Deprecated
 public class ModPlacedFeatures {
-    private static final DeferredRegister<PlacedFeature> REGISTER = DeferredRegister.create(MasterWeapons.MOD_ID, Registry.PLACED_FEATURE_REGISTRY);
+    private static final DeferredRegister<PlacedFeature> REGISTER = DeferredRegister.create(MasterWeapons.MOD_ID, Registries.PLACED_FEATURE);
 
     /**
      * Placed feature for ultran ore.
      */
     public static final RegistrySupplier<PlacedFeature> ULTRAN_ORE = REGISTER.register("ultran_ore", () -> new PlacedFeature(Holder.direct(ModConfiguredFeatures.ULTRAN_ORE.toOptional().orElseThrow()), List.of(
-            CountPlacement.of(1),
+            CountPlacement.of(64),
             HeightRangePlacement.uniform(VerticalAnchor.TOP, VerticalAnchor.BOTTOM),
-            RarityFilter.onAverageOnceEvery(64)
+            RarityFilter.onAverageOnceEvery(1)
     )));
 
     /**

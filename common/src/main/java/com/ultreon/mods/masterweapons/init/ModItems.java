@@ -2,9 +2,11 @@ package com.ultreon.mods.masterweapons.init;
 
 import com.ultreon.mods.masterweapons.MasterWeapons;
 import com.ultreon.mods.masterweapons.items.*;
+import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.Registry;
+import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
 
@@ -19,7 +21,7 @@ import java.util.function.Supplier;
  */
 @SuppressWarnings("unused")
 public class ModItems {
-    private static final DeferredRegister<Item> REGISTER = DeferredRegister.create(MasterWeapons.MOD_ID, Registry.ITEM_REGISTRY);
+    private static final DeferredRegister<Item> REGISTER = DeferredRegister.create(MasterWeapons.MOD_ID, Registries.ITEM);
     public static final RegistrySupplier<SwordItem> ULTRAN_SWORD = register("ultran_sword", UltranSword::new);
     public static final RegistrySupplier<AxeItem> ULTRAN_AXE = register("ultran_axe", UltranAxe::new);
     public static final RegistrySupplier<PickaxeItem> ULTRAN_PICKAXE = register("ultran_pickaxe", UltranPickaxe::new);
@@ -29,13 +31,15 @@ public class ModItems {
     public static final RegistrySupplier<ArmorItem> ULTRAN_CHESTPLATE = register("ultran_chestplate", () -> new UltranArmor(EquipmentSlot.CHEST));
     public static final RegistrySupplier<ArmorItem> ULTRAN_LEGGINGS = register("ultran_leggings", () -> new UltranArmor(EquipmentSlot.LEGS));
     public static final RegistrySupplier<ArmorItem> ULTRAN_BOOTS = register("ultran_boots", () -> new UltranArmor(EquipmentSlot.FEET));
-    public static final RegistrySupplier<ArrowItem> ULTRAN_ARROW = register("ultran_arrow", () -> new UltranArrowItem(new Item.Properties().tab(MasterWeapons.getTab())));
+    public static final RegistrySupplier<ArrowItem> ULTRAN_ARROW = register("ultran_arrow", () -> new UltranArrowItem(new Item.Properties()));
 
-    public static final RegistrySupplier<Item> RAW_ULTRAN = register("raw_ultran", () -> new Item(new Item.Properties().tab(MasterWeapons.getTab())));
-    public static final RegistrySupplier<Item> ULTRAN_INGOT = register("ultran_ingot", () -> new Item(new Item.Properties().tab(MasterWeapons.getTab())));
-    public static final RegistrySupplier<Item> ULTRAN_NUGGET = register("ultran_nugget", () -> new Item(new Item.Properties().tab(MasterWeapons.getTab())));
+    public static final RegistrySupplier<Item> RAW_ULTRAN = register("raw_ultran", () -> new Item(new Item.Properties()));
+    public static final RegistrySupplier<Item> ULTRAN_INGOT = register("ultran_ingot", () -> new Item(new Item.Properties()));
+    public static final RegistrySupplier<Item> ULTRAN_NUGGET = register("ultran_nugget", () -> new Item(new Item.Properties()));
 
+    @SuppressWarnings({"unchecked", "UnstableApiUsage"})
     static <T extends Item> RegistrySupplier<T> register(String name, Supplier<T> supplier) {
+        CreativeTabRegistry.append(MasterWeapons.getTab(), supplier);
         return REGISTER.register(name, supplier);
     }
 

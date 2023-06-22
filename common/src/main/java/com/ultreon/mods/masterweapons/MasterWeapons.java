@@ -2,16 +2,13 @@ package com.ultreon.mods.masterweapons;
 
 import com.ultreon.mods.masterweapons.client.ClientEvents;
 import com.ultreon.mods.masterweapons.client.ClientInitialization;
-import com.ultreon.mods.masterweapons.init.ModBlocks;
-import com.ultreon.mods.masterweapons.init.ModEntities;
-import com.ultreon.mods.masterweapons.init.ModItems;
+import com.ultreon.mods.masterweapons.init.*;
 import com.ultreon.mods.masterweapons.world.gen.WorldGeneration;
 import dev.architectury.event.events.common.LifecycleEvent;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.utils.Env;
 import dev.architectury.utils.EnvExecutor;
 import net.minecraft.resources.ResourceLocation;
-import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.ItemStack;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -33,10 +30,10 @@ public class MasterWeapons {
     private static final Marker CLIENT_MARKER = MarkerFactory.getMarker("Client");
     private static final Marker SERVER_MARKER = MarkerFactory.getMarker("Server");
     private static final MasterWeapons INSTANCE = new MasterWeapons();
-    private static final CreativeModeTab tab = CreativeTabRegistry.create(res(MOD_ID), () -> new ItemStack(ModItems.ULTRAN_SWORD.get()));
+    private static final CreativeTabRegistry.TabSupplier tab = CreativeTabRegistry.create(res(MOD_ID), () -> new ItemStack(ModItems.ULTRAN_SWORD.get()));
     private CommonEvents commonEvents;
 
-    public static CreativeModeTab getTab() {
+    public static CreativeTabRegistry.TabSupplier getTab() {
         return tab;
     }
 
@@ -50,7 +47,6 @@ public class MasterWeapons {
 
     }
 
-    @SuppressWarnings("Convert2MethodRef")
     public void init() {
         LOGGER.info(INIT_MARKER, "Just loaded Master Weapons Mod initializer.");
 
@@ -61,6 +57,8 @@ public class MasterWeapons {
         ModItems.register();
         ModBlocks.register();
         ModEntities.register();
+        ModConfiguredFeatures.register();
+        ModPlacedFeatures.register();
 
         // Initialized.
         LOGGER.info(INIT_MARKER, "Initialized Master Weapons Mod.");
