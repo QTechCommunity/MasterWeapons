@@ -4,13 +4,11 @@ import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.ultreon.mods.masterweapons.common.UltranArmorBase;
 import com.ultreon.mods.masterweapons.init.ModRarities;
-import dev.architectury.injectables.annotations.ExpectPlatform;
 import net.minecraft.world.entity.Entity;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.AttributeModifier;
-import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.food.FoodData;
 import net.minecraft.world.item.ArmorItem;
@@ -23,6 +21,9 @@ import org.jetbrains.annotations.NotNull;
 import java.util.UUID;
 
 import static com.ultreon.mods.masterweapons.Constants.ARMOR_PROPERTY;
+import static java.lang.Double.POSITIVE_INFINITY;
+import static net.minecraft.world.entity.ai.attributes.AttributeModifier.Operation.*;
+import static net.minecraft.world.entity.ai.attributes.Attributes.*;
 
 /**
  * Ultran Armor
@@ -33,7 +34,7 @@ import static com.ultreon.mods.masterweapons.Constants.ARMOR_PROPERTY;
  * @since 2.0.0
  */
 public class UltranArmor extends ArmorItem implements UltranArmorBase {
-    private static final UUID[] BASE_ARMOR_UUIDS = new UUID[]{UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
+    private static final UUID[] ARMOR_UUIDS = new UUID[]{UUID.fromString("845DB27C-C624-495F-8C9F-6020A9A58B6B"), UUID.fromString("D8499B04-0E66-4726-AB29-64469D734E0D"), UUID.fromString("9F3D476D-C118-4544-8365-64846904B48E"), UUID.fromString("2AD3F246-FEE1-4E67-B886-69FD380BB150")};
 
     /**
      * Constructor
@@ -53,7 +54,6 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
      */
     @NotNull
     @Override
-    @ExpectPlatform
     public Rarity getRarity(@NotNull ItemStack stack) {
         return ModRarities.getLegendary();
     }
@@ -72,31 +72,37 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
 
     @Override
     public void inventoryTick(ItemStack itemStack, Level level, Entity entity, int i, boolean bl) {
-        if (entity instanceof LivingEntity living) {
-            if (slot == EquipmentSlot.HEAD && living.getItemBySlot(slot).is(this)) {
-                living.setAirSupply(living.getMaxAirSupply());
-                living.setStingerCount(0);
-                living.setArrowCount(0);
-            }
-            if (slot == EquipmentSlot.CHEST && living.getItemBySlot(slot).is(this)) {
-                living.setHealth(living.getMaxHealth());
-                living.setStingerCount(0);
-                living.setArrowCount(0);
-                if (living instanceof Player player) {
-                    FoodData foodData = player.getFoodData();
-                    foodData.setFoodLevel(20);
-                    foodData.setExhaustion(0.0F);
-                    foodData.setSaturation(20.0F);
-                }
-            }
-            if (slot == EquipmentSlot.LEGS && living.getItemBySlot(slot).is(this)) {
-                living.setStingerCount(0);
-                living.setArrowCount(0);
-            }
-            if (slot == EquipmentSlot.FEET && living.getItemBySlot(slot).is(this)) {
-                living.setStingerCount(0);
-                living.setArrowCount(0);
-            }
+        if (!(entity instanceof LivingEntity living) || !living.getItemBySlot(slot).is(this)) {
+            return;
+        }
+
+        switch (slot) {
+            case HEAD -> tickHeadItem(living);
+            case CHEST -> tickChestItem(living);
+            case LEGS, FEET -> tickMisc(living);
+        }
+    }
+
+    private static void tickMisc(LivingEntity living) {
+        living.setStingerCount(0);
+        living.setArrowCount(0);
+    }
+
+    private static void tickHeadItem(LivingEntity living) {
+        tickMisc(living);
+
+        living.setAirSupply(living.getMaxAirSupply());
+    }
+
+    private static void tickChestItem(LivingEntity living) {
+        tickMisc(living);
+
+        living.setHealth(living.getMaxHealth());
+        if (living instanceof Player player) {
+            FoodData foodData = player.getFoodData();
+            foodData.setFoodLevel(20);
+            foodData.setExhaustion(0.0F);
+            foodData.setSaturation(20.0F);
         }
     }
 
@@ -109,18 +115,30 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
     @NotNull
     @Override
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot equipmentSlot) {
-        Multimap<Attribute, AttributeModifier> multimap = HashMultimap.create();
+        Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
+        UUID armorUuid = ARMOR_UUIDS[equipmentSlot.getIndex()];
         if (equipmentSlot == this.slot) {
-            multimap.put(Attributes.ARMOR, new AttributeModifier(BASE_ARMOR_UUIDS[equipmentSlot.getIndex()], "Armor modifier", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
-            multimap.put(Attributes.ARMOR_TOUGHNESS, new AttributeModifier(BASE_ARMOR_UUIDS[equipmentSlot.getIndex()], "Armor toughness", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
-            if (this.slot == EquipmentSlot.LEGS) {
-                multimap.put(Attributes.MOVEMENT_SPEED, new AttributeModifier(BASE_ARMOR_UUIDS[equipmentSlot.getIndex()], "Movement speed", 0.2d, AttributeModifier.Operation.ADDITION));
-            } else if (this.slot == EquipmentSlot.FEET) {
-                multimap.put(Attributes.KNOCKBACK_RESISTANCE, new AttributeModifier(BASE_ARMOR_UUIDS[equipmentSlot.getIndex()], "Knockback resistance", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
-            } else if (this.slot == EquipmentSlot.HEAD) {
-                multimap.put(Attributes.LUCK, new AttributeModifier(BASE_ARMOR_UUIDS[equipmentSlot.getIndex()], "Lucky boy", 4096d, AttributeModifier.Operation.ADDITION));
+            modifiers.put(ARMOR, new AttributeModifier(armorUuid, "Armor modifier", POSITIVE_INFINITY, ADDITION));
+            modifiers.put(ARMOR_TOUGHNESS, new AttributeModifier(armorUuid, "Armor toughness", POSITIVE_INFINITY, ADDITION));
+
+            switch (this.slot) {
+                case HEAD -> putHeadAttrs(armorUuid, modifiers);
+                case LEGS -> putLegsAttrs(armorUuid, modifiers);
+                case FEET -> putFeetAttrs(armorUuid, modifiers);
             }
         }
-        return multimap;
+        return modifiers;
+    }
+
+    private static void putHeadAttrs(UUID uuid, Multimap<Attribute, AttributeModifier> modifiers) {
+        modifiers.put(LUCK, new AttributeModifier(uuid, "Luck", 4096d, ADDITION));
+    }
+
+    private static void putFeetAttrs(UUID uuid, Multimap<Attribute, AttributeModifier> modifiers) {
+        modifiers.put(KNOCKBACK_RESISTANCE, new AttributeModifier(uuid, "Knockback resistance", POSITIVE_INFINITY, ADDITION));
+    }
+
+    private static void putLegsAttrs(UUID uuid, Multimap<Attribute, AttributeModifier> modifiers) {
+        modifiers.put(MOVEMENT_SPEED, new AttributeModifier(uuid, "Movement speed", 0.2d, ADDITION));
     }
 }

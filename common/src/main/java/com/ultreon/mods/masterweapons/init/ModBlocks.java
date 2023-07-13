@@ -6,6 +6,7 @@ import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.registry.registries.DeferredRegister;
 import dev.architectury.registry.registries.RegistrySupplier;
 import net.minecraft.core.registries.Registries;
+import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.material.Material;
@@ -31,9 +32,7 @@ public class ModBlocks {
 
     @SuppressWarnings({"unchecked", "UnstableApiUsage"})
     private static <T extends Block> RegistrySupplier<T> register(String name, Supplier<T> supplier) {
-        RegistrySupplier<T> registryObject = REGISTER.register(name, supplier);
-        CreativeTabRegistry.append(MasterWeapons.getTab(), ModItems.register(name, () -> new ModBlockItem(registryObject, new Item.Properties())));
-        return registryObject;
+        return REGISTER.register(name, supplier);
     }
 
     /**

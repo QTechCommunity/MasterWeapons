@@ -1,33 +1,33 @@
 package com.ultreon.mods.masterweapons.world.gen;
 
 import com.ultreon.mods.masterweapons.MasterWeapons;
-import com.ultreon.mods.masterweapons.init.ModPlacedFeatures;
+import dev.architectury.hooks.level.biome.BiomeProperties;
 import dev.architectury.registry.level.biome.BiomeModifications;
-import net.minecraft.core.registries.Registries;
-import net.minecraft.resources.ResourceKey;
-import net.minecraft.world.level.levelgen.GenerationStep;
+import net.minecraft.tags.BiomeTags;
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
+
+import static com.ultreon.mods.masterweapons.MasterWeapons.LOGGER;
+import static net.minecraft.world.level.levelgen.GenerationStep.Decoration.UNDERGROUND_ORES;
 
 /**
  * @author Qboi123
  */
 public class WorldGeneration {
-    private static final Marker MARKER = MarkerFactory.getMarker("WorldGeneration");
-    private static final boolean initialized = false;
+
+    private static final Marker MARKER = MarkerFactory.getMarker("WorldGen");
 
     private WorldGeneration() {
 
     }
 
     public static void init() {
-        BiomeModifications.addProperties((biomeContext, mutable) -> {
-            MasterWeapons.LOGGER.info(MARKER, "Adding features to biome '{}'", biomeContext.getKey());
-            mutable.getGenerationProperties().addFeature(GenerationStep.Decoration.UNDERGROUND_ORES, ResourceKey.create(Registries.PLACED_FEATURE, ModPlacedFeatures.ULTRAN_ORE.getId()));
-        });
+        BiomeModifications.addProperties(context -> context.hasTag(BiomeTags.IS_OVERWORLD),
+                WorldGeneration::modifyBiome);
     }
 
-    public static boolean isInitialized() {
-        return initialized;
+    private static void modifyBiome(BiomeModifications.BiomeContext context, BiomeProperties.Mutable properties) {
+        context.getKey().ifPresent(biomeId -> LOGGER.info(MARKER, "Modifying biome: " + biomeId));
+        properties.getGenerationProperties().addFeature(UNDERGROUND_ORES, WorldGenKeys.PLACED_ULTRAN_ORE);
     }
 }

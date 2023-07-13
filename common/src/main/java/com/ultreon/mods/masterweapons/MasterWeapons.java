@@ -2,18 +2,27 @@ package com.ultreon.mods.masterweapons;
 
 import com.ultreon.mods.masterweapons.client.ClientEvents;
 import com.ultreon.mods.masterweapons.client.ClientInitialization;
-import com.ultreon.mods.masterweapons.init.*;
+import com.ultreon.mods.masterweapons.init.ModBlocks;
+import com.ultreon.mods.masterweapons.init.ModEntities;
+import com.ultreon.mods.masterweapons.init.ModItems;
+import com.ultreon.mods.masterweapons.items.creativetab.CreativeTabModifiers;
 import com.ultreon.mods.masterweapons.world.gen.WorldGeneration;
 import dev.architectury.event.events.common.LifecycleEvent;
+import dev.architectury.registry.CreativeTabOutput;
 import dev.architectury.registry.CreativeTabRegistry;
 import dev.architectury.utils.Env;
 import dev.architectury.utils.EnvExecutor;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.flag.FeatureFlagSet;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.slf4j.Marker;
 import org.slf4j.MarkerFactory;
+
+import java.util.List;
 
 /**
  * Master Weapons main mod class.
@@ -30,12 +39,7 @@ public class MasterWeapons {
     private static final Marker CLIENT_MARKER = MarkerFactory.getMarker("Client");
     private static final Marker SERVER_MARKER = MarkerFactory.getMarker("Server");
     private static final MasterWeapons INSTANCE = new MasterWeapons();
-    private static final CreativeTabRegistry.TabSupplier tab = CreativeTabRegistry.create(res(MOD_ID), () -> new ItemStack(ModItems.ULTRAN_SWORD.get()));
     private CommonEvents commonEvents;
-
-    public static CreativeTabRegistry.TabSupplier getTab() {
-        return tab;
-    }
 
     /**
      * DO NOT INVOKE, THIS IS FOR MOD LOADING ONLY.
@@ -53,14 +57,10 @@ public class MasterWeapons {
         // Registering event handlers to mod eventbus.
         LOGGER.info(INIT_MARKER, "Registering event handlers to mod eventbus.");
 
-        // Registering items and blocks to mod eventbus.
-        ModItems.register();
         ModBlocks.register();
+        ModItems.register();
         ModEntities.register();
-        ModConfiguredFeatures.register();
-        ModPlacedFeatures.register();
 
-        // Initialized.
         LOGGER.info(INIT_MARKER, "Initialized Master Weapons Mod.");
 
         commonEvents = new CommonEvents();
@@ -73,7 +73,11 @@ public class MasterWeapons {
     }
 
     private void setup() {
+        LOGGER.info(SETUP_MARKER, "Initializing world generation stuffs.");
         WorldGeneration.init();
+
+        LOGGER.info(SETUP_MARKER, "Modifying creative tabs.");
+        CreativeTabModifiers.modifyCreativeTabs();
     }
 
     public static ResourceLocation res(String path) {

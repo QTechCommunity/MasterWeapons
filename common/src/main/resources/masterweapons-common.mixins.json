@@ -3,7 +3,7 @@
   "package": "com.ultreon.mods.masterweapons.mixin",
   "compatibilityLevel": "JAVA_17",
   "client": [
-    "MixinTitleScreen"
+
   ],
   "mixins": [
     "EnchantmentHelperMixin"

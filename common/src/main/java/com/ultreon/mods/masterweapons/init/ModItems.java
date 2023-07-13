@@ -9,6 +9,9 @@ import net.minecraft.core.Registry;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.world.entity.EquipmentSlot;
 import net.minecraft.world.item.*;
+import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.material.Material;
+import net.minecraft.world.level.material.MaterialColor;
 
 import java.util.function.Supplier;
 
@@ -37,9 +40,13 @@ public class ModItems {
     public static final RegistrySupplier<Item> ULTRAN_INGOT = register("ultran_ingot", () -> new Item(new Item.Properties()));
     public static final RegistrySupplier<Item> ULTRAN_NUGGET = register("ultran_nugget", () -> new Item(new Item.Properties()));
 
+    public static final RegistrySupplier<BlockItem> ULTRAN_BLOCK = register("ultran_block", () -> new BlockItem(ModBlocks.ULTRAN_BLOCK.get(), new Item.Properties()));
+    public static final RegistrySupplier<BlockItem> RAW_ULTRAN_BLOCK = register("raw_ultran_block", () -> new BlockItem(ModBlocks.RAW_ULTRAN_BLOCK.get(), new Item.Properties()));
+    public static final RegistrySupplier<BlockItem> ULTRAN_ORE = register("ultran_ore", () -> new BlockItem(ModBlocks.ULTRAN_ORE.get(), new Item.Properties()));
+    public static final RegistrySupplier<BlockItem> DEEPSLATE_ULTRAN_ORE = register("deepslate_ultran_ore", () -> new BlockItem(ModBlocks.DEEPSLATE_ULTRAN_ORE.get(), new Item.Properties()));
+
     @SuppressWarnings({"unchecked", "UnstableApiUsage"})
     static <T extends Item> RegistrySupplier<T> register(String name, Supplier<T> supplier) {
-        CreativeTabRegistry.append(MasterWeapons.getTab(), supplier);
         return REGISTER.register(name, supplier);
     }
 
