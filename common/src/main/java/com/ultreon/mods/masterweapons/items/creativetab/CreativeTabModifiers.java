@@ -49,6 +49,7 @@ public class CreativeTabModifiers {
     }
 
     private static void addCombatItems(FeatureFlagSet flags, CreativeTabOutput output, boolean canUseGameMasterBlocks) {
+        output.acceptAfter(Items.SPECTRAL_ARROW, ModItems.ULTRAN_ARROW.get());
         output.acceptAfter(Items.NETHERITE_SWORD, ModItems.ULTRAN_SWORD.get());
         output.acceptAfter(Items.NETHERITE_AXE, ModItems.ULTRAN_AXE.get());
         output.acceptAllAfter(Items.NETHERITE_BOOTS, List.of(
