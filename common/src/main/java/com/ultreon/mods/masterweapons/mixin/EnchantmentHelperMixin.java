@@ -40,8 +40,6 @@ public class EnchantmentHelperMixin {
         } else if (itemInHand.getItem() instanceof UltranToolBase) {
             if (pEnchantment == Enchantments.BLOCK_FORTUNE) {
                 cir.setReturnValue(10);
-            } else if (pEnchantment == Enchantments.BLOCK_EFFICIENCY) {
-                cir.setReturnValue(100);
             } else if (pEnchantment == Enchantments.MENDING) {
                 cir.setReturnValue(1);
             } else if (pEnchantment == Enchantments.UNBREAKING) {
@@ -60,8 +58,7 @@ public class EnchantmentHelperMixin {
                 var item = pEntity.getItemBySlot(slot);
                 if (item.getItem() instanceof UltranArmorBase) {
                     if (item.getItem() instanceof ArmorItem armor) {
-                        EquipmentSlot equipmentSlot = armor.getSlot();
-                        if (equipmentSlot == null) return;
+                        EquipmentSlot equipmentSlot = armor.getEquipmentSlot();
                         switch (equipmentSlot) {
                             case HEAD -> {
                                 if (pEnchantment == Enchantments.AQUA_AFFINITY) {

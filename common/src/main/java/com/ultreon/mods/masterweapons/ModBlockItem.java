@@ -9,7 +9,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * A block item that requires a supplier as parameter.
  *
- * @author Qboi123, Forge Team
+ * @author XyperCode, Forge Team
  */
 @SuppressWarnings("unused")
 public class ModBlockItem extends BlockItem {

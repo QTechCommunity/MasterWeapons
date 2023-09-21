@@ -24,7 +24,7 @@ import static com.ultreon.mods.masterweapons.Constants.TOOL_PROPERTY;
  * Ultran Hoe
  * This is not your ordinary hoe, it is a weapon. Allowing the player to kill anything in a single hit.
  *
- * @author Qboi123
+ * @author XyperCode
  * @see UltranToolTier
  */
 public class UltranHoe extends HoeItem implements UltranToolBase {
@@ -56,7 +56,7 @@ public class UltranHoe extends HoeItem implements UltranToolBase {
      */
     @Override
     public float getDestroySpeed(@NotNull ItemStack stack, @NotNull BlockState state) {
-        return Float.POSITIVE_INFINITY;
+        return Float.MAX_VALUE;
     }
 
     /**
@@ -75,10 +75,5 @@ public class UltranHoe extends HoeItem implements UltranToolBase {
             multimap.put(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(BASE_ATTACK_KNOCKBACK_UUID, "Weapon modifier", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
         }
         return multimap;
-    }
-
-    @Override
-    public boolean canAttackBlock(BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer) {
-        return !pState.requiresCorrectToolForDrops();
     }
 }

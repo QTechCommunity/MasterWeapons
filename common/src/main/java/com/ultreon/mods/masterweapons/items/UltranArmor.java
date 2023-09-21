@@ -29,7 +29,7 @@ import static net.minecraft.world.entity.ai.attributes.Attributes.*;
  * Ultran Armor
  * The ultran armor isn't your average armor. It's the most powerful armor ever. Making every being invincible with more effects.
  *
- * @author Qboi123
+ * @author XyperCode
  * @see UltranArmorMaterial
  * @since 2.0.0
  */
@@ -39,11 +39,11 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
     /**
      * Constructor
      *
-     * @param slot the equipment slot for the armor.
+     * @param type the armor item type.
      * @since 2.0.0
      */
-    public UltranArmor(EquipmentSlot slot) {
-        super(UltranArmorMaterial.getInstance(), slot, ARMOR_PROPERTY);
+    public UltranArmor(Type type) {
+        super(UltranArmorMaterial.getInstance(), type, ARMOR_PROPERTY);
     }
 
     /**
@@ -67,16 +67,16 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
      */
     @Override
     public float getDestroySpeed(@NotNull ItemStack stack, @NotNull BlockState state) {
-        return Float.POSITIVE_INFINITY;
+        return Float.MAX_VALUE;
     }
 
     @Override
     public void inventoryTick(ItemStack itemStack, Level level, Entity entity, int i, boolean bl) {
-        if (!(entity instanceof LivingEntity living) || !living.getItemBySlot(slot).is(this)) {
+        if (!(entity instanceof LivingEntity living) || !living.getItemBySlot(getEquipmentSlot()).is(this)) {
             return;
         }
 
-        switch (slot) {
+        switch (getEquipmentSlot()) {
             case HEAD -> tickHeadItem(living);
             case CHEST -> tickChestItem(living);
             case LEGS, FEET -> tickMisc(living);
@@ -117,11 +117,11 @@ public class UltranArmor extends ArmorItem implements UltranArmorBase {
     public Multimap<Attribute, AttributeModifier> getDefaultAttributeModifiers(@NotNull EquipmentSlot equipmentSlot) {
         Multimap<Attribute, AttributeModifier> modifiers = HashMultimap.create();
         UUID armorUuid = ARMOR_UUIDS[equipmentSlot.getIndex()];
-        if (equipmentSlot == this.slot) {
+        if (equipmentSlot == this.getEquipmentSlot()) {
             modifiers.put(ARMOR, new AttributeModifier(armorUuid, "Armor modifier", POSITIVE_INFINITY, ADDITION));
             modifiers.put(ARMOR_TOUGHNESS, new AttributeModifier(armorUuid, "Armor toughness", POSITIVE_INFINITY, ADDITION));
 
-            switch (this.slot) {
+            switch (this.getEquipmentSlot()) {
                 case HEAD -> putHeadAttrs(armorUuid, modifiers);
                 case LEGS -> putLegsAttrs(armorUuid, modifiers);
                 case FEET -> putFeetAttrs(armorUuid, modifiers);

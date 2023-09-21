@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Master Weapons main mod class.
  *
- * @author Qboi123
+ * @author XyperCode
  */
 public class MasterWeapons {
     public static final String MOD_ID = "masterweapons";

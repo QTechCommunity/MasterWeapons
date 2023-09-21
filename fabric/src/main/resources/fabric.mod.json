@@ -3,9 +3,9 @@
   "id": "masterweapons",
   "version": "${version}",
   "name": "Master Weapons",
-  "description": "\n§l§nMaster Weapons§r\n §oA mod that adds overpowered items.§r\n\n§lFeatures§r\n * Master sword, axe, pickaxe, shovel and hoe\n * Master ingot and nugget.\n * Master block and ore.\n * Recipes for tools, sword, ingot, nugget and block.\n * Infinite damage.\n * Ore generation (has 1 ore in 64 chunks).\n\n§lSource code§r\n The source code is on github: https://github.com/Qboi123/master-weapons\n",
+  "description": "\n§l§nMaster Weapons§r\n §oA mod that adds overpowered items.§r\n\n§lFeatures§r\n * Master sword, axe, pickaxe, shovel and hoe\n * Master ingot and nugget.\n * Master block and ore.\n * Recipes for tools, sword, ingot, nugget and block.\n * Infinite damage.\n * Ore generation (has 1 ore in 64 chunks).\n\n§lSource code§r\n The source code is on github: https://github.com/XyperCode/master-weapons\n",
   "authors": [
-    "Qboi123"
+    "XyperCode"
   ],
   "contact": {
     "homepage": "https://ultreon.github.io/web/",
@@ -25,7 +25,7 @@
   ],
   "depends": {
     "fabric": "*",
-    "minecraft": ">=1.19.3 <1.19.4",
-    "architectury": ">=7.1 <8"
+    "minecraft": ">=1.19.4 <1.20",
+    "architectury": ">=8.1 <9"
   }
 }

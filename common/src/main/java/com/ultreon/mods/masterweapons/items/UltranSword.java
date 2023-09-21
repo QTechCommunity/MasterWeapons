@@ -24,7 +24,7 @@ import static com.ultreon.mods.masterweapons.Constants.TOOL_PROPERTY;
  * Ultran sword is a sword that is made of ultran.
  * Able to kill everything in its way.
  *
- * @author Qboi123
+ * @author XyperCode
  * @see UltranToolTier
  */
 public class UltranSword extends SwordItem implements UltranMeleeWeaponBase {
@@ -66,7 +66,7 @@ public class UltranSword extends SwordItem implements UltranMeleeWeaponBase {
      */
     @Override
     public float getDestroySpeed(@NotNull ItemStack stack, @NotNull BlockState state) {
-        return Float.POSITIVE_INFINITY;
+        return Float.MAX_VALUE;
     }
 
     /**

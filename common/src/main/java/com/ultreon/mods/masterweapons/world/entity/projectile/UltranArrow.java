@@ -40,9 +40,9 @@ public class UltranArrow extends AbstractArrow {
             Entity arrowOwner = this.getOwner();
             DamageSource damageSource;
             if (arrowOwner == null) {
-                damageSource = DamageSource.arrow(this, this);
+                damageSource = living.level.damageSources().arrow(this, this);
             } else {
-                damageSource = DamageSource.arrow(this, arrowOwner);
+                damageSource = living.level.damageSources().arrow(this, arrowOwner);
                 if (arrowOwner instanceof LivingEntity livingOwner) {
                     livingOwner.setLastHurtMob(entity);
                 }

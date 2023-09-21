@@ -25,7 +25,7 @@ import static com.ultreon.mods.masterweapons.Constants.TOOL_PROPERTY;
  * Ultran Axe
  * The ultran axe is not just a tool or weapon, it's a super weapon.
  *
- * @author Qboi123
+ * @author XyperCode
  * @see UltranToolTier
  */
 public class UltranAxe extends AxeItem implements UltranToolBase {
@@ -57,7 +57,7 @@ public class UltranAxe extends AxeItem implements UltranToolBase {
      */
     @Override
     public float getDestroySpeed(@NotNull ItemStack stack, @NotNull BlockState state) {
-        return Float.POSITIVE_INFINITY;
+        return Float.MAX_VALUE;
     }
 
     /**
@@ -76,10 +76,5 @@ public class UltranAxe extends AxeItem implements UltranToolBase {
             multimap.put(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(BASE_ATTACK_KNOCKBACK_UUID, "Weapon modifier", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
         }
         return multimap;
-    }
-
-    @Override
-    public boolean canAttackBlock(BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer) {
-        return pState.is(BlockTags.MINEABLE_WITH_AXE);
     }
 }

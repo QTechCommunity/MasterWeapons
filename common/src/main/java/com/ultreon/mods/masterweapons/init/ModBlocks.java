@@ -17,7 +17,7 @@ import java.util.function.Supplier;
 /**
  * Block initialization class.
  *
- * @author Qboi123
+ * @author XyperCode
  * @see Block
  * @since 2.0.0
  */
@@ -38,7 +38,7 @@ public class ModBlocks {
     /**
      * Registers all blocks.
      *
-     * @author Qboi123
+     * @author XyperCode
      * @since 3.0.0
      */
     public static void register() {

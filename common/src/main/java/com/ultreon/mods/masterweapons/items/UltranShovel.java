@@ -26,7 +26,7 @@ import static com.ultreon.mods.masterweapons.Constants.TOOL_PROPERTY;
  * Ultran Shovel
  * The ultran shovel is a destroyer of nature.
  *
- * @author Qboi123
+ * @author XyperCode
  * @see UltranToolTier
  * @since 2.0.0
  */
@@ -34,7 +34,7 @@ public class UltranShovel extends ShovelItem implements UltranToolBase, ItemExte
     /**
      * Constructor
      *
-     * @author Qboi123
+     * @author XyperCode
      * @since 2.0.0
      */
     public UltranShovel() {
@@ -46,7 +46,7 @@ public class UltranShovel extends ShovelItem implements UltranToolBase, ItemExte
      *
      * @param stack the item stack to get the rarity for.
      * @return the rarity.
-     * @author Qboi123
+     * @author XyperCode
      * @since 2.0.0
      */
     @NotNull
@@ -61,12 +61,12 @@ public class UltranShovel extends ShovelItem implements UltranToolBase, ItemExte
      * @param stack the item stack instance.
      * @param state the state of the block to check the speed to destroy the block for.
      * @return the speed to destroy a block.
-     * @author Qboi123
+     * @author XyperCode
      * @since 2.0.0
      */
     @Override
     public float getDestroySpeed(@NotNull ItemStack stack, @NotNull BlockState state) {
-        return Float.POSITIVE_INFINITY;
+        return Float.MAX_VALUE;
     }
 
     /**
@@ -74,7 +74,7 @@ public class UltranShovel extends ShovelItem implements UltranToolBase, ItemExte
      *
      * @param equipmentSlot the equipment slot to get the attribute modifiers for.
      * @return an multi-mapping for attribute to modifier.
-     * @author Qboi123
+     * @author XyperCode
      * @since 2.0.0
      */
     @NotNull
@@ -87,10 +87,5 @@ public class UltranShovel extends ShovelItem implements UltranToolBase, ItemExte
             multimap.put(Attributes.ATTACK_KNOCKBACK, new AttributeModifier(BASE_ATTACK_KNOCKBACK_UUID, "Weapon modifier", Double.POSITIVE_INFINITY, AttributeModifier.Operation.ADDITION));
         }
         return multimap;
-    }
-
-    @Override
-    public boolean canAttackBlock(BlockState pState, @NotNull Level pLevel, @NotNull BlockPos pPos, @NotNull Player pPlayer) {
-        return pState.is(BlockTags.MINEABLE_WITH_SHOVEL);
     }
 }

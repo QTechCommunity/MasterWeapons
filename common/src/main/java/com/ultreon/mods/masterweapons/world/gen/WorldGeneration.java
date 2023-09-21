@@ -11,7 +11,7 @@ import static com.ultreon.mods.masterweapons.MasterWeapons.LOGGER;
 import static net.minecraft.world.level.levelgen.GenerationStep.Decoration.UNDERGROUND_ORES;
 
 /**
- * @author Qboi123
+ * @author XyperCode
  */
 public class WorldGeneration {
 

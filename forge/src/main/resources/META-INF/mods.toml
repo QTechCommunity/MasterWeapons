@@ -8,7 +8,7 @@ modLoader = "javafml" #mandatory
 # A version range to match for said mod loader - for regular FML @Mod it will be the forge version
 loaderVersion = "[41,)" #mandatory This is typically bumped every Minecraft version by Forge. See our download page for lists of versions.
 # A URL to refer people to when problems occur with this mod
-issueTrackerURL = "https://github.com/Qboi123/master-weapons/issues" #optional
+issueTrackerURL = "https://github.com/XyperCode/master-weapons/issues" #optional
 
 license = '''
 GNU LESSER GENERAL PUBLIC LICENSE
@@ -26,13 +26,13 @@ displayName = "Master Weapons" #mandatory
 ## A URL to query for updates for this mod. See the JSON update specification <here>
 #updateJSONURL="http://myurl.me/" #optional
 # A URL for the "homepage" for this mod, displayed in the mod UI
-displayURL = "https://github.com/Qboi123/" #optional
+displayURL = "https://github.com/XyperCode/" #optional
 # A file name (in the root of the mod JAR) containing a logo for display
 logoFile = "masterweapons.png" #optional
 # A text field displayed in the mod UI
 #credits = "" #optional
 # A text field displayed in the mod UI
-authors = "Qboi" #optional
+authors = "XyperCode" #optional
 # The description text for the mod (multi line!) (#mandatory)
 description = '''
 §l§nMaster Weapons§r
@@ -47,7 +47,7 @@ description = '''
  * Ore generation (has 1 ore in 64 chunks).
 
 §lSource code§r
- The source code is on github: https://github.com/Qboi123/master-weapons
+ The source code is on github: https://github.com/XyperCode/master-weapons
 '''
 # A dependency - use the . to indicate dependency for a specific modid. Dependencies are optional.
 [[dependencies.masterweapons]] #optional
@@ -56,7 +56,7 @@ modId = "forge" #mandatory
 # Does this dependency have to exist - if not, ordering below must be specified
 mandatory = true #mandatory
 # The version range of the dependency
-versionRange = "[41,)" #mandatory
+versionRange = "[45,)" #mandatory
 # An ordering relationship for the dependency - BEFORE or AFTER required if the relationship is not mandatory
 ordering = "NONE"
 # Side this dependency is applied on - BOTH, CLIENT or SERVER
@@ -65,12 +65,12 @@ side = "BOTH"
 [[dependencies.masterweapons]]
 modId = "minecraft"
 mandatory = true
-versionRange = "[1.19.3,1.19.4)"
+versionRange = "[1.19.4,1.20)"
 ordering = "NONE"
 side = "BOTH"
 [[dependencies.masterweapons]]
 modId = "architectury"
 mandatory = true
-versionRange = "[7.1,8)"
+versionRange = "[8.1,9)"
 ordering = "NONE"
 side = "BOTH"

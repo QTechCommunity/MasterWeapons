@@ -8,7 +8,7 @@ import org.jetbrains.annotations.NotNull;
 /**
  * Ultran tool tier.
  *
- * @author Qboi123
+ * @author XyperCode
  * @since 2.0.0
  */
 public class UltranToolTier implements Tier {
@@ -23,7 +23,7 @@ public class UltranToolTier implements Tier {
      * Get the instance.
      *
      * @return the instance.
-     * @author Qboi123
+     * @author XyperCode
      * @since 2.0.0
      */
     public static UltranToolTier getInstance() {
@@ -33,7 +33,7 @@ public class UltranToolTier implements Tier {
     /**
      * Constructor for the Master Tier for tools and weapons.
      *
-     * @author Qboi123
+     * @author XyperCode
      * @since 2.0.0
      */
     private UltranToolTier() {
@@ -44,31 +44,31 @@ public class UltranToolTier implements Tier {
      * Get the maximum amount of uses.
      *
      * @return the maximum amount of uses, always positive infinity.
-     * @author Qboi123
+     * @author XyperCode
      * @since 2.0.0
      */
     @Override
     public int getUses() {
-        return (int) Float.POSITIVE_INFINITY;
+        return Integer.MAX_VALUE;
     }
 
     /**
      * Get the speed to destroy a block.
      *
      * @return the block destroy speed, always positive infinity.
-     * @author Qboi123
+     * @author XyperCode
      * @since 2.0.0
      */
     @Override
     public float getSpeed() {
-        return Float.POSITIVE_INFINITY;
+        return Float.MAX_VALUE;
     }
 
     /**
      * Get the attack damage.
      *
      * @return the attack damage, always positive infinity.
-     * @author Qboi123
+     * @author XyperCode
      * @since 2.0.0
      */
     @Override
@@ -80,7 +80,7 @@ public class UltranToolTier implements Tier {
      * Get the level of tool tier.
      *
      * @return the harvest level, is six for all tools and weapons.
-     * @author Qboi123
+     * @author XyperCode
      * @since 2.0.0
      */
     @Override
@@ -92,19 +92,19 @@ public class UltranToolTier implements Tier {
      * Get how enchantable the item is.
      *
      * @return the enchantment value, always positive infinity.
-     * @author Qboi123
+     * @author XyperCode
      * @since 2.0.0
      */
     @Override
     public int getEnchantmentValue() {
-        return (int) Float.POSITIVE_INFINITY;
+        return Integer.MAX_VALUE;
     }
 
     /**
      * Get the repair material.
      *
      * @return an ingredient instance containing the master ingot item.
-     * @author Qboi123
+     * @author XyperCode
      * @since 2.0.0
      */
     @NotNull

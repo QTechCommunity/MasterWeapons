@@ -16,7 +16,7 @@ import java.util.function.Supplier;
 /**
  * Item initialization class.
  *
- * @author Qboi123
+ * @author XyperCode
  * @see Item
  * @since 2.0.0
  */
